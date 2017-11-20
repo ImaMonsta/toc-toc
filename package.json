@@ -15,6 +15,6 @@
     "firebase": "node_modules/.bin/firebase"
   },
   "devDependencies": {
-    "firebase-cli": "^1.2.0"
+    "firebase-tools": "^3.15.2"
   }
 }
