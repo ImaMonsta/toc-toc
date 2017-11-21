@@ -10,7 +10,7 @@ class BannerPostResume extends Component {
                             <div className="pull-left">
                                 <h1>Add your resume and let your next job find you.</h1>
                             </div>
-                            <a href="#" className="btn btn-primary pull-right">Add Your Resume</a>
+                            <a href="" className="btn btn-primary pull-right">Add Your Resume</a>
                         </div>
                     </div>{/*<!-- /.cta-content -->*/}
                 </div>{/*<!-- /.container -->*/}

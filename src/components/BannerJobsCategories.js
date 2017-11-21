@@ -10,7 +10,7 @@ class BannerJobsCategories extends Component {
                 </div>
                 <ul className="category-list tr-list">
                     <li>
-                        <a href="#">
+                        <a>
                             <span className="icon">
                                 <img src="images/icons/category1.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -19,7 +19,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category2.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -28,7 +28,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category3.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -37,7 +37,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category4.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -48,7 +48,7 @@ class BannerJobsCategories extends Component {
                 </ul>
                 <ul className="category-list tr-list">
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category5.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -57,7 +57,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category6.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -66,7 +66,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category7.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -75,7 +75,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category8.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -86,7 +86,7 @@ class BannerJobsCategories extends Component {
                 </ul>
                 <ul className="category-list category-list-bottom tr-list">
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category9.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -95,7 +95,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category10.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -104,7 +104,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category11.png" alt="Icon" className="img-responsive"/>
                             </span>
@@ -113,7 +113,7 @@ class BannerJobsCategories extends Component {
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="">
                             <span className="icon">
                                 <img src="images/icons/category12.png" alt="Icon" className="img-responsive"/>
                             </span>
