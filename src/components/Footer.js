@@ -63,7 +63,7 @@ class Footer extends Component {
                 <div className="footer-bottom">
                     <div className="container">
                         <div className="copyright">
-                            <p>Copyright © 2017 <a href="">Seeker.com.</a> All rights reserved.</p>
+                            <p>Copyright © 2018 <a href="">toctoc.network.</a> All rights reserved.</p>
                         </div>
                         <div className="footer-social pull-right">
                             <ul className="tr-list">

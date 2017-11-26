@@ -12,7 +12,7 @@ class Index extends Component {
     render() {
         return ([
             <Header key="Header"/>,
-            <Banner key="Banner"/>,
+            <Banner key="Banner" title="The Easiest Way to Get Your New Job" detail="We offer 12000 jobs vacation right now" search={true}/>,
             <BannerJobsCategories key="BannerJobsCategories"/>,
             <BannerPostResume key="HeadBannerPostResumeer"/>,
             <BannerJobsPosted key="BannerJobsPosted"/>,

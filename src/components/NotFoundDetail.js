@@ -22,7 +22,7 @@ class NotFoundDetail extends Component {
                                 </div>
                             </div>
                         </div>{/*<!-- /.row */}				
-                    </div>{/*<!-- /.section */}
+                    </div>{/*<!-- /.section */}git 
                 </div>{/*<!-- /.container */}		
             </div>	
         );
