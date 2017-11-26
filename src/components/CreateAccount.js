@@ -21,29 +21,22 @@ class CreateAccount extends Component {
                                         <div className="account-content">
                                             <form action="" className="tr-form">
                                                 <div className="form-group">
-                                                    <input type="text" className="form-control" placeholder="Full Name"/>
+                                                    <input type="text" className="form-control" placeholder="Full Name" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="text" className="form-control" placeholder="Username"/>
+                                                    <input type="text" className="form-control" placeholder="Username" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="email" className="form-control" placeholder="your Email"/>
+                                                    <input type="email" className="form-control" placeholder="your Email" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="password" className="form-control" placeholder="Password"/>
+                                                    <input type="password" className="form-control" placeholder="Password" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="password" className="form-control" placeholder="Confirm Password"/>
+                                                    <input type="password" className="form-control" placeholder="Confirm Password" />
                                                 </div>
-                                                <div className="dropdown tr-change-dropdown">
-                                                    <a data-toggle="dropdown" href="" aria-expanded="false"><span className="change-text">Gender</span><i className="fa fa-angle-down"></i></a>
-                                                    <ul className="dropdown-menu tr-change">
-                                                        <li><a href="">Male</a></li>
-                                                        <li><a href="">Female</a></li>
-                                                    </ul>								
-                                                </div>{/*<!-- /.category-change -->*/}
                                                 <button type="submit" className="btn btn-primary">Sign Up</button>
-                                            </form>	
+                                            </form>
                                             <div className="new-user text-center">
                                                 <span>Already Registered? <Link to="/signin">Sign In</Link></span>
                                             </div>
@@ -53,19 +46,19 @@ class CreateAccount extends Component {
                                         <div className="account-content">
                                             <form action="" className="tr-form">
                                                 <div className="form-group">
-                                                    <input type="text" className="form-control" placeholder="Your Full Name"/>
+                                                    <input type="text" className="form-control" placeholder="Your Full Name" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="text" className="form-control" placeholder="Username"/>
+                                                    <input type="text" className="form-control" placeholder="Username" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="email" className="form-control" placeholder="your Email"/>
+                                                    <input type="email" className="form-control" placeholder="your Email" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="password" className="form-control" placeholder="Password"/>
+                                                    <input type="password" className="form-control" placeholder="Password" />
                                                 </div>
                                                 <div className="form-group">
-                                                    <input type="password" className="form-control" placeholder="Confirm Password"/>
+                                                    <input type="password" className="form-control" placeholder="Confirm Password" />
                                                 </div>
                                                 <div className="dropdown tr-change-dropdown">
                                                     <a data-toggle="dropdown" href="" aria-expanded="false"><span className="change-text">Industry Type</span><i className="fa fa-angle-down"></i></a>
@@ -73,21 +66,21 @@ class CreateAccount extends Component {
                                                         <li><a href="">Industry 1</a></li>
                                                         <li><a href="">Industry 2</a></li>
                                                         <li><a href="">Industry 3</a></li>
-                                                    </ul>								
-                                                </div>{/*<!-- /.category-change -->*/}												
+                                                    </ul>
+                                                </div>{/*<!-- /.category-change -->*/}
                                                 <button type="submit" className="btn btn-primary">Sign Up</button>
-                                            </form>	
+                                            </form>
                                             <div className="new-user text-center">
                                                 <span>Already Registered? <Link to="/signin">Sign In</Link></span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>				
-                            </div>			
+                                </div>
+                            </div>
                         </div>
-                    </div>{/*<!-- /.row -->*/}			
+                    </div>{/*<!-- /.row -->*/}
                 </div>{/*<!-- container -->*/}
-            </div>	
+            </div>
         );
     }
 }

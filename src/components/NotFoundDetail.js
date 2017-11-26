@@ -10,7 +10,7 @@ class NotFoundDetail extends Component {
                         <div className="row">
                             <div className="col-sm-4">
                                 <div className="found-image">
-                                    <img src="images/others/404.jpg" alt="Not Found" className="img-responsive"/>
+                                    <img src="images/others/404.jpg" alt="Not Found" className="img-responsive" />
                                 </div>
                             </div>
                             <div className="col-sm-8">
@@ -21,10 +21,10 @@ class NotFoundDetail extends Component {
                                     <Link to="/" className="btn btn-primary">Back to home</Link>
                                 </div>
                             </div>
-                        </div>{/*<!-- /.row */}				
-                    </div>{/*<!-- /.section */}git 
-                </div>{/*<!-- /.container */}		
-            </div>	
+                        </div>{/*<!-- /.row */}
+                    </div>{/*<!-- /.section */}
+                </div>{/*<!-- /.container */}
+            </div>
         );
     }
 }

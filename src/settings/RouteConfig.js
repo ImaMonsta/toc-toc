@@ -5,14 +5,21 @@ import Index from '../containers/Index';
 import NotFound from '../containers/NotFound';
 import SignIn from '../containers/SignIn';
 import SignUp from '../containers/SignUp';
+//<!--global components-->
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-export const RouteConfig = () =>  (
+export const RouteConfig = () => (
     <BrowserRouter>
-        <Switch>
-            <Route exact path="/" component={Index} />
-            <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route component={NotFound} />
-        </Switch>
+        <div>
+            <Header key="Header" />
+            <Switch>
+                <Route exact path="/" component={Index} />
+                <Route exact path="/signin" component={SignIn} />
+                <Route exact path="/signup" component={SignUp} />
+                <Route component={NotFound} />
+            </Switch>
+            <Footer key="Footer" />
+        </div>
     </BrowserRouter>
 );

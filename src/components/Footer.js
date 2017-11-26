@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Footer extends Component {
     render() {
@@ -49,8 +50,8 @@ class Footer extends Component {
                                     <p>Earum cumque doloribus, incidunt! Tempora voluptatibus</p>
                                     <form className="contact-form" method="post" action="">
                                         <div className="form-group">
-                                            <input type="email" className="form-control" required="required" placeholder="Your email Id"/>
-                                        </div>             
+                                            <input type="email" className="form-control" required="required" placeholder="Your email Id" />
+                                        </div>
                                         <div className="form-group">
                                             <button type="submit" className="btn btn-primary">Sign Up</button>
                                         </div>
@@ -63,7 +64,7 @@ class Footer extends Component {
                 <div className="footer-bottom">
                     <div className="container">
                         <div className="copyright">
-                            <p>Copyright © 2018 <a href="">toctoc.network.</a> All rights reserved.</p>
+                            <p>Copyright © 2018 <Link to="/">toctoc.network.</Link> All rights reserved.</p>
                         </div>
                         <div className="footer-social pull-right">
                             <ul className="tr-list">
