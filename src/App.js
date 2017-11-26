@@ -1,26 +1,16 @@
 import React, { Component } from 'react';
+import Raven from 'raven-js'
 import './App.css';
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Banner from './components/Banner'
-import BannerJobsCategories from './components/BannerJobsCategories'
-import BannerJobsPosted from './components/BannerJobsPosted'
-import BannerPostResume from './components/BannerPostResume'
-import BannerSteps from './components/BannerSteps'
-import BannerFunFacts from './components/BannerFunFact'
+import { RouteConfig } from './settings/RouteConfig'
 
 class App extends Component {
+
+  componentWillMount(){
+    Raven.config('https://df4abb34618e4ef981cac63f82abb797@sentry.io/250533').install();
+  }
+
   render() {
-    return ([
-      <Header/>,
-      <Banner/>,
-      <BannerJobsCategories/>,
-      <BannerPostResume/>,
-      <BannerJobsPosted/>,
-      <BannerSteps/>,
-      <BannerFunFacts/>,
-      <Footer/>
-    ]);
+    return (<RouteConfig/>);
   }
 }
 
