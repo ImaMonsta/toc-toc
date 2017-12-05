@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux'
 import Raven from 'raven-js'
 import './App.css';
 import { RouteConfig } from './settings/RouteConfig'
+import store from './store'
 
 class App extends Component {
 
@@ -10,7 +12,11 @@ class App extends Component {
   }
 
   render() {
-    return (<RouteConfig />);
+    return (
+      <Provider store={store}>
+        <RouteConfig />
+      </Provider>
+    );
   }
 }
 
