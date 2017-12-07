@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 import Raven from 'raven-js'
 import './App.css';
-import { RouteConfig } from './settings/RouteConfig'
 import store from './store'
+import MainApp from './containers/MainApp'
 
 class App extends Component {
 
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <RouteConfig />
+          <MainApp />
       </Provider>
     );
   }
