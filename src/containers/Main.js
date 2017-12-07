@@ -17,7 +17,7 @@ class Main extends Component {
                     <Switch>
                         <Route exact path="/" component={Index} />
                         <Route exact path="/signin" component={SignIn} />
-                        <Route exact path="/signup" component={SignUp} />
+                        <Route exact path="/signup" render={(props) => (<SignUp {...this.props}/>)} />
                         <Route component={NotFound} />
                     </Switch>
                     <Footer key="Footer" />

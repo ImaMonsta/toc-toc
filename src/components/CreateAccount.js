@@ -35,7 +35,7 @@ class CreateAccount extends Component {
                                                 <div className="form-group">
                                                     <input type="password" className="form-control" placeholder="Confirm Password" />
                                                 </div>
-                                                <button type="submit" className="btn btn-primary">Sign Up</button>
+                                                <button onClick={this.props.signup} className="btn btn-primary">Sign Up</button>
                                             </form>
                                             <div className="new-user text-center">
                                                 <span>Already Registered? <Link to="/signin">Sign In</Link></span>
@@ -68,7 +68,7 @@ class CreateAccount extends Component {
                                                         <li><a href="">Industry 3</a></li>
                                                     </ul>
                                                 </div>{/*<!-- /.category-change -->*/}
-                                                <button type="submit" className="btn btn-primary">Sign Up</button>
+                                                <button onClick={this.props.signup.bind(null)} className="btn btn-primary">Sign Up</button>
                                             </form>
                                             <div className="new-user text-center">
                                                 <span>Already Registered? <Link to="/signin">Sign In</Link></span>
