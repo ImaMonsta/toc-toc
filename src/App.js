@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import Raven from 'raven-js'
 import './App.css';
 import store from './store'
-import MainApp from './containers/MainApp'
+import Main from './containers/Main'
 
 class App extends Component {
 
@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-          <MainApp />
+          <Main />
       </Provider>
     );
   }

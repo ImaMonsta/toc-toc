@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 import firebase from 'firebase';
+import * as userActions from '../actions/userActions';
+import * as controlActions from '../actions/controlActions';
 import Index from '../containers/Index';
 import NotFound from '../containers/NotFound';
 import SignIn from '../containers/SignIn';
@@ -39,4 +44,21 @@ class Main extends Component {
     }
 }
 
-export default Main;
+Main.propTypes = {
+    dispatch: PropTypes.func.isRequired
+}
+
+function mapStateToProps(state) {
+    const { candidates, user, appcontrol } = state
+    return {
+        candidates,
+        user,
+        appcontrol
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return { dispatch, ...bindActionCreators({ ...userActions, ...controlActions }, dispatch)};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

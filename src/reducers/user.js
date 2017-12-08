@@ -1,20 +1,11 @@
-import firebase from 'firebase'
-import { CREATE_LOGIN } from '../actions/userActions'
-
-function createUser(user) {
-    firebase.auth().createUserWithEmailAndPassword(user.email, user.password).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode, errorMessage)
-    });
-}
+import { CREATE_LOGIN_REQUEST, CREATE_LOGIN_RESPONSE } from '../actions/userActions'
 
 function user(state = [], action) {
     switch (action.type) {
-        case CREATE_LOGIN:
-            createUser(action.user);
-            state = action.user;
+        case CREATE_LOGIN_REQUEST:
+            break;
+        case CREATE_LOGIN_RESPONSE:
+            console.log(state);
             break;
         default:
             break;

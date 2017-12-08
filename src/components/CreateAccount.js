@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { createLogin } from '../actions/userActions'
 
 class CreateAccount extends Component {
     constructor() {
@@ -8,6 +9,7 @@ class CreateAccount extends Component {
     }
 
     handleSubmit(e) {
+        let { dispatch } = this.props;
         e.preventDefault();
         const user = {
             username: this.refs.username.value,
@@ -15,8 +17,7 @@ class CreateAccount extends Component {
             fullName: this.refs.fullName.value,
             email: this.refs.email.value
         }
-        this.props.createLogin(user);
-
+        dispatch(createLogin(user));
     }
     render() {
         const { registerIsCandidate, toogleRegister } = this.props;
