@@ -13,9 +13,11 @@ import Index from '../containers/Index';
 import NotFound from '../containers/NotFound';
 import SignIn from '../containers/SignIn';
 import SignUp from '../containers/SignUp';
+import Profile from '../containers/Profile';
 //<!--global components-->
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { checkUserState } from '../actions/userActions'
 
 class Main extends Component {
     componentWillMount() {
@@ -27,10 +29,10 @@ class Main extends Component {
             storageBucket: "toc-toc-network.appspot.com",
             messagingSenderId: "872153099985"
         });
+        this.props.dispatch(checkUserState());
     }
 
     render() {
-        const { user } = this.props;
         return (
             <ConnectedRouter history={history}>
                 <div>
@@ -42,11 +44,12 @@ class Main extends Component {
                         transitionIn="fadeIn"
                         transitionOut="fadeOut"
                         progressBar />
-                    <Header key="Header" user={user} />
+                    <Header key="Header" {...this.props} />
                     <Switch>
                         <Route exact path="/" component={Index} />
                         <Route exact path="/signin" render={(props) => (<SignIn {...this.props} />)} />
                         <Route exact path="/signup" render={(props) => (<SignUp {...this.props} />)} />
+                        <Route exact path="/profile/:uid" component={Profile} />
                         <Route component={NotFound} />
                     </Switch>
                     <Footer key="Footer" />

@@ -268,7 +268,7 @@ input:focus, textarea:focus, select:focus,
 	color: #fff;
 	padding: 100px 0;
 	overflow: hidden;
-	background-image: url(../images/bg/banner.jpg);
+	background-image: url(../images/bg/banner.png);
 }
 
 .page-title h1 {
@@ -674,7 +674,7 @@ input:focus, textarea:focus, select:focus,
 .tr-banner {
 	color: #fff;
 	padding: 120px 0;
-	background-image: url(../images/bg/banner.jpg);
+	background-image: url(../images/bg/banner.png);
 }
 
 .banner-content h1 {
@@ -3014,7 +3014,7 @@ input:focus, textarea:focus, select:focus,
 .tr-coming-soon {
 	color: #fff;
 	text-transform: uppercase;
-	background-image: url(../images/bg/banner.jpg);
+	background-image: url(../images/bg/banner.png);
 }
 
 .tr-coming-soon.section-before:before {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { logout } from '../actions/userActions'
 
 class Header extends Component {
     render() {
@@ -15,7 +16,7 @@ class Header extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <Link className="navbar-brand" to="/"><img className="img-responsive" src="images/logo.png" alt="Logo" /></Link>
+                            <Link className="navbar-brand" to="/"><img className="img-responsive" src="/images/logo.png" alt="Logo" /></Link>
                         </div>
                         {/*<!-- /.navbar-header -->*/}
 
@@ -34,10 +35,10 @@ class Header extends Component {
                             <ul className="sign-in tr-list">
                                 <li><i className="fa fa-user"></i></li>
                                 {
-                                user.user 
+                                user.email
                                     ? [
-                                        <li key="user">{user.user.email}</li>,
-                                        <li key="signout">Sign Out</li>
+                                        <li key="user"><Link to={`/profile/${user.uid}`}>{user.email}</Link></li>,
+                                        <li key="signout"><a onClick={e => this.props.dispatch(logout())}>Sign Out</a></li>
                                     ]
                                     : [
                                         <li key="sigin"><Link to="/signin">Sign In </Link></li>,
