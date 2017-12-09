@@ -1,4 +1,6 @@
 import firebase from 'firebase'
+import {toastr} from 'react-redux-toastr' 
+import { push } from 'react-router-redux'
 
 export const CREATE_LOGIN_REQUEST = 'CREATE_LOGIN_REQUEST';
 export function createLoginRequest(user) {
@@ -17,11 +19,50 @@ export function createLoginResponse(response) {
 }
 
 export const CREATE_LOGIN_FAILED = 'CREATE_LOGIN_FAILED';
-export function createLoginFailed(errorMessage, errorCode) {
+export function createLoginFailed(message, code) {
     return {
         type: CREATE_LOGIN_FAILED,
-        errorMessage,
-        errorCode
+        message,
+        code
+    }
+}
+
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export function loginRequest() {
+    return {
+        type: LOGIN_REQUEST
+    }
+}
+
+export const LOGIN_RESPONSE = 'LOGIN_RESPONSE'
+export function loginResponse(response) {
+    return {
+        type: LOGIN_RESPONSE,
+        response
+    }
+}
+
+export const LOGIN_FAILED = 'LOGIN_FAILED'
+export function loginFailed(message, code) {
+    return {
+        type: LOGIN_FAILED,
+        message,
+        code
+    }
+}
+
+export function login(email, password) {
+    return dispatch => {
+        dispatch(loginRequest());
+        return firebase.auth().signInWithEmailAndPassword(email, password)
+        .then( response => {
+            dispatch(loginResponse(response));
+            dispatch(push('/'))
+        })
+        .catch( error => {
+            const { code, message } = error;
+            toastr.error(`Error: ${code}`, `${message}`);
+        });
     }
 }
 
@@ -30,15 +71,11 @@ export function createLogin(user) {
         dispatch(createLoginRequest(user));
         return firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
             .then(response => {
-                console.log(response);
                 dispatch(createLoginResponse(response));
             })
             .catch(error => {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                dispatch(createLoginFailed(errorMessage, errorCode))
-                console.log(errorCode, errorMessage)
+                const { code, message } = error;
+                toastr.error(`Error: ${code}`, `${message}`);
             });
     }
 

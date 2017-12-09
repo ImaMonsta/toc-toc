@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { login } from '../actions/userActions';
 
 class Login extends Component {
+    constructor() {
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(e) {
+        let { dispatch } = this.props;
+        e.preventDefault();
+        const user = {
+            password: this.refs.password.value,
+            email: this.refs.email.value
+        }
+        dispatch(login(user.email, user.password));
+        this.refs.login.reset()
+    }
+
     render() {
         return (
             <div className="tr-account section-padding">
@@ -10,12 +27,12 @@ class Login extends Component {
                         <div className="col-md-4 col-md-offset-4">
                             <div className="user-account">
                                 <div className="account-content">
-                                    <form action="" className="tr-form">
+                                    <form ref="login" action="" className="tr-form" onSubmit={this.handleSubmit}>
                                         <div className="form-group">
-                                            <input type="email" className="form-control" placeholder="Please Enter Your Email" />
+                                            <input ref="email" type="email" className="form-control" placeholder="Please Enter Your Email" />
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" className="form-control" placeholder="Password" />
+                                            <input ref="password" type="password" className="form-control" placeholder="Password" />
                                         </div>
                                         <div className="user-option">
                                             <div className="checkbox">

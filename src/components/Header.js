@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render() {
+        const { user } = this.props;
         return (
             <header className="tr-header">
                 <nav className="navbar navbar-default">
@@ -32,8 +33,17 @@ class Header extends Component {
                         <div className="navbar-right">
                             <ul className="sign-in tr-list">
                                 <li><i className="fa fa-user"></i></li>
-                                <li><Link to="/signin">Sign In </Link></li>
-                                <li><Link to="/signup">Register</Link></li>
+                                {
+                                user.user 
+                                    ? [
+                                        <li key="user">{user.user.email}</li>,
+                                        <li key="signout">Sign Out</li>
+                                    ]
+                                    : [
+                                        <li key="sigin"><Link to="/signin">Sign In </Link></li>,
+                                        <li key="signup"><Link to="/signup">Register</Link></li>
+                                    ]
+                                }
                             </ul>{/*<!-- /.sign-in -->*/}
 
                             <a href="job-post.html" className="btn btn-primary">Post Job</a>
