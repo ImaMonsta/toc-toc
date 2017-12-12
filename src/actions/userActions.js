@@ -100,9 +100,10 @@ export function createLogin(user) {
         dispatch(createLoginRequest(user));
         return firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
             .then(user => {
-                toastr.info(``, `Welcome!`);
+                toastr.info(``, `Verification email sent to ${user.email}!`);
                 dispatch(push('/'))
                 dispatch(createLoginResponse(user));
+                user.sendEmailVerification();
             })
             .catch(error => {
                 const { code, message } = error;

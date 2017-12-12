@@ -10,10 +10,12 @@ function user(state = [], action) {
         case CREATE_LOGIN_RESPONSE:
         case CHECK_USER_STATE_RESPONSE:
             if (!action.user) return {}
-            const { email, uid } = action.user;
+            const { email, uid, emailVerified } = action.user;
+            console.log(action.user);
             return  {
                 email,
-                uid
+                uid,
+                emailVerified
             }
         default:
             break;

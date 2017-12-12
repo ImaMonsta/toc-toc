@@ -10,7 +10,7 @@ class NotFoundDetail extends Component {
                         <div className="row">
                             <div className="col-sm-4">
                                 <div className="found-image">
-                                    <img src="images/others/404.jpg" alt="Not Found" className="img-responsive" />
+                                    <img src="/images/others/404.jpg" alt="Not Found" className="img-responsive" />
                                 </div>
                             </div>
                             <div className="col-sm-8">

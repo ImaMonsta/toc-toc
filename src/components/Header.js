@@ -37,7 +37,7 @@ class Header extends Component {
                                 {
                                 user.email
                                     ? [
-                                        <li key="user"><Link to={`/profile/${user.uid}`}>{user.email}</Link></li>,
+                                        <li key="user"><Link to={`/profile/${user.uid}`}>{user.email}</Link>{` ${!user.emailVerified && '(Not Verified)'}`}</li>,
                                         <li key="signout"><a onClick={e => this.props.dispatch(logout())}>Sign Out</a></li>
                                     ]
                                     : [
