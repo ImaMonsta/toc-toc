@@ -6,11 +6,12 @@ class Questionary extends Component {
     constructor() {
         super();
         this.renderQuestion = this.renderQuestion.bind(this);
+        this.questionaryResult = this.questionaryResult.bind(this);
     }
 
     renderQuestion(prop, indexGroup, indexQuestion) {
-        const more = `inpMore_${indexGroup}_${indexQuestion}`;
-        const less = `inpLess_${indexGroup}_${indexQuestion}`;
+        const more = `more_${indexGroup}_${indexQuestion}`;
+        const less = `less_${indexGroup}_${indexQuestion}`;
         return (
             <div className="form-group row text-centered" key={`rowDiv⎮${indexGroup}⎮${indexQuestion}`}>
                 <label htmlFor={`more${indexGroup}`} className="col-sm-5 col-form-label">{prop}</label>
@@ -18,6 +19,22 @@ class Questionary extends Component {
                 <input className="col-sm-2 form-check-input" ref={less} type="radio" name={`less${indexGroup}`} value={prop} />
             </div>
         );
+    }
+
+    questionaryResult() {
+        const questionaryProperties = {};
+        Object.keys(this.refs)
+        .forEach(key => { 
+            const [ ml, group ] = key.split('_');
+            const { checked, value } = this.refs[key];
+            const moreOrless = checked ? { [ml]: value, } : {};
+            
+            questionaryProperties[`Question${group}`] = {
+                ...questionaryProperties[`Question${group}`],
+                ...moreOrless
+            };
+        });
+        return questionaryProperties;
     }
 
     render() {
@@ -48,8 +65,9 @@ class Questionary extends Component {
             ['Comforme', 'Confiable', 'Pacifico', 'Positivo'],
             ['Inquieto', 'Popular', 'Buen Vecino', 'Devoto']
         ];
+    
 
-        const pushSample = (e) => { e.preventDefault(); console.log('todos/german', this.refs.questionary); };
+        //const pushSample = (e) => { e.preventDefault(); console.log('todos/german', this.questionaryResult()); };
 
         return (
             <div className="tr-profile section-padding" >
@@ -81,9 +99,6 @@ class Questionary extends Component {
                                         )
                                     }
                                     <div className="col-sm-12 section text-center">
-                                        <button onClick={e => pushSample(e)}>
-                                            Add
-                                    </button>
                                         <Link to="/" className="btn btn-primary">Complete Registration</Link>
                                     </div>
                                 </form>

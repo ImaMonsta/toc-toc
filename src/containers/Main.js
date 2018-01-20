@@ -42,7 +42,7 @@ class Main extends Component {
                         <Route exact path="/signin" render={(props) => (<SignIn {...this.props} />)} />
                         <Route exact path="/signup" render={(props) => (<SignUp {...this.props} />)} />
                         <Route exact path="/profile/:uid" component={Profile} />
-                        <Route exact path="/verification/" component={Verification} />
+                        <Route exact path="/verification" component={Verification} />
                         <Route component={NotFound} />
                     </Switch>
                     <Footer key="Footer" />
