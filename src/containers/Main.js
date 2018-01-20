@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReduxToastr from 'react-redux-toastr';
 import { ConnectedRouter } from 'react-router-redux'
-import firebase from 'firebase';
 import { history } from '../store'
 import * as userActions from '../actions/userActions';
 import * as controlActions from '../actions/controlActions';
@@ -22,14 +21,6 @@ import { checkUserState } from '../actions/userActions'
 
 class Main extends Component {
     componentWillMount() {
-        firebase.initializeApp({
-            apiKey: "AIzaSyCUC5wXW3fcPHy4SPFjPNIQyzHlI7D3RiE",
-            authDomain: "toc-toc-network.firebaseapp.com",
-            databaseURL: "https://toc-toc-network.firebaseio.com",
-            projectId: "toc-toc-network",
-            storageBucket: "toc-toc-network.appspot.com",
-            messagingSenderId: "872153099985"
-        });
         this.props.dispatch(checkUserState());
     }
 

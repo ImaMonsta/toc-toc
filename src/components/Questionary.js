@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+//import store from '../store';
 
 class Questionary extends Component {
-    constructor(){
+    constructor() {
         super();
         this.renderQuestion = this.renderQuestion.bind(this);
     }
 
     renderQuestion(prop, indexGroup, indexQuestion) {
+        const more = `inpMore_${indexGroup}_${indexQuestion}`;
+        const less = `inpLess_${indexGroup}_${indexQuestion}`;
         return (
             <div className="form-group row text-centered" key={`rowDiv⎮${indexGroup}⎮${indexQuestion}`}>
                 <label htmlFor={`more${indexGroup}`} className="col-sm-5 col-form-label">{prop}</label>
-                <input className="col-sm-2 form-check-input" ref={`inpMore⎮${indexGroup}⎮${indexQuestion}`} type="radio" name={`more${indexGroup}`} value={prop} />
-                <input className="col-sm-2 form-check-input" ref={`inpLess⎮${indexGroup}⎮${indexQuestion}`} type="radio" name={`less${indexGroup}`} value={prop} />
+                <input className="col-sm-2 form-check-input" ref={more} type="radio" name={`more${indexGroup}`} value={prop} />
+                <input className="col-sm-2 form-check-input" ref={less} type="radio" name={`less${indexGroup}`} value={prop} />
             </div>
         );
     }
@@ -31,7 +34,7 @@ class Questionary extends Component {
             ['Competitivo', 'Alegre', 'Considerado', 'Armonioso'],
             ['Dispuesto', 'Deseoso', 'Consecuente', 'Entusiasta'],
             ['Admirable', 'Bondadoso', 'Resignado', 'Caracter Firme'],
-            
+
             ['Obediente', 'Quisquilloso', 'Inconquistable', 'Jugueton'],
             ['Aventurero', 'Receptivo', 'Cordial', 'Moderado'],
             ['Respetuoso', 'Emprendedor', 'Optimista', 'Servicial'],
@@ -45,8 +48,11 @@ class Questionary extends Component {
             ['Comforme', 'Confiable', 'Pacifico', 'Positivo'],
             ['Inquieto', 'Popular', 'Buen Vecino', 'Devoto']
         ];
+
+        const pushSample = (e) => { e.preventDefault(); console.log('todos/german', this.refs.questionary); };
+
         return (
-            <div className="tr-profile section-padding">
+            <div className="tr-profile section-padding" >
                 <div className="container">
                     <div className="row">
                     </div>
@@ -64,18 +70,21 @@ class Questionary extends Component {
                             <div className="section display-information">
                                 <form>
                                     {
-                                        questions.map((question, i) => 
+                                        questions.map((question, i) =>
                                             <div className="col-sm-6" key={`baseDiv${i}`}>
                                                 <div className="form-group">
-                                                    <span  className="col-sm-offset-5  col-sm-2">M</span>
-                                                    <span  className="col-sm-2">L</span>
+                                                    <span className="col-sm-offset-5  col-sm-2">More</span>
+                                                    <span className="col-sm-2">Less</span>
                                                 </div>
                                                 {question.map((prop, j) => this.renderQuestion(prop, i, j))}
                                             </div>
                                         )
                                     }
-                                    <div className="col-sm-12 section text-center"> 
-                                    <Link to="/" className="btn btn-primary">Complete Registration</Link>
+                                    <div className="col-sm-12 section text-center">
+                                        <button onClick={e => pushSample(e)}>
+                                            Add
+                                    </button>
+                                        <Link to="/" className="btn btn-primary">Complete Registration</Link>
                                     </div>
                                 </form>
                             </div>
