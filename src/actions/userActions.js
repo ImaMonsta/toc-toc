@@ -57,6 +57,17 @@ export function userRequestFailed(message, code) {
     }
 }
 
+export const EMAIL_VERIFICATION_REQUEST = 'EMAIL_VERIFICATION_REQUEST'
+export function emailVerificationRequest(code, questionary) {
+    return {
+        type: EMAIL_VERIFICATION_REQUEST,
+        code,
+        questionary
+    }
+}
+
+////////////////////// 👾 \\\\\\\\\\\\\\\\\\\\\
+
 export function checkUserState() {
     return dispatch => {
         return firebase.auth()
@@ -110,5 +121,20 @@ export function createLogin(user) {
                 toastr.error(`Error: ${code}`, `${message}`);
             });
     }
+}
 
+export function verifyEmail(actionCode, questionary) {
+    return dispatch => {
+        console.log(actionCode);
+        dispatch(emailVerificationRequest(actionCode, questionary))
+        return firebase.auth().applyActionCode(actionCode)
+            .then(resp => {
+                dispatch(push('/'));
+                console.log(resp);
+            })
+            .catch(error => {
+                const { code, message } = error;
+                toastr.error(`Error: ${code}`, `${message}`);
+            });
+    }
 }

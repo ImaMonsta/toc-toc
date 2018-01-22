@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import queryString from 'query-string';
-//import Notification from '../components/Notification'
+import queryString from 'query-string';
+
 import Questionary from '../components/Questionary'
 
 class Verification extends Component {
@@ -8,9 +8,7 @@ class Verification extends Component {
         return (
             <div className="page-content">
                 <div className="container">
-                    {/* <p>{JSON.stringify(queryString.parse(this.props.location.search))}</p> */}
-                    {/* <Notification header={"Token Expired"} description={"This token was already submited."} icon={"fa-hand-spock-o"} /> */}
-                    <Questionary />
+                    <Questionary {...this.props} urlTokens={queryString.parse(this.props.search)} />
                </div>
             </div>
         );

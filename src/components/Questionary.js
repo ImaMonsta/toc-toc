@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-//import store from '../store';
 
 class Questionary extends Component {
     constructor() {
         super();
         this.renderQuestion = this.renderQuestion.bind(this);
         this.questionaryResult = this.questionaryResult.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     renderQuestion(prop, indexGroup, indexQuestion) {
@@ -24,17 +23,23 @@ class Questionary extends Component {
     questionaryResult() {
         const questionaryProperties = {};
         Object.keys(this.refs)
-        .forEach(key => { 
-            const [ ml, group ] = key.split('_');
-            const { checked, value } = this.refs[key];
-            const moreOrless = checked ? { [ml]: value, } : {};
-            
-            questionaryProperties[`Question${group}`] = {
-                ...questionaryProperties[`Question${group}`],
-                ...moreOrless
-            };
-        });
+            .forEach(key => {
+                const [ml, group] = key.split('_');
+                const { checked, value } = this.refs[key];
+                const moreOrless = checked ? { [ml]: value, } : {};
+
+                questionaryProperties[`Question${group}`] = {
+                    ...questionaryProperties[`Question${group}`],
+                    ...moreOrless
+                };
+            });
         return questionaryProperties;
+    }
+
+    handleSubmit(e) {
+        const { verifyEmail, urlTokens } = this.props;
+        e.preventDefault();
+        verifyEmail(urlTokens.oobCode ,{});
     }
 
     render() {
@@ -65,7 +70,7 @@ class Questionary extends Component {
             ['Comforme', 'Confiable', 'Pacifico', 'Positivo'],
             ['Inquieto', 'Popular', 'Buen Vecino', 'Devoto']
         ];
-    
+
 
         //const pushSample = (e) => { e.preventDefault(); console.log('todos/german', this.questionaryResult()); };
 
@@ -86,10 +91,10 @@ class Questionary extends Component {
                                 </div>
                             </div>{/*<!-- /.resume-last-updated -->*/}
                             <div className="section display-information">
-                                <form>
+                                <form className="tr-form" onSubmit={ this.handleSubmit }>
                                     {
                                         questions.map((question, i) =>
-                                            <div className="col-sm-6" key={`baseDiv${i}`}>
+                                            <div className="col-sm-6" key={ `baseDiv${i}` }>
                                                 <div className="form-group">
                                                     <span className="col-sm-offset-5  col-sm-2">More</span>
                                                     <span className="col-sm-2">Less</span>
@@ -99,7 +104,7 @@ class Questionary extends Component {
                                         )
                                     }
                                     <div className="col-sm-12 section text-center">
-                                        <Link to="/" className="btn btn-primary">Complete Registration</Link>
+                                        <button type="submit" className="btn btn-primary">Complete Registration</button>
                                     </div>
                                 </form>
                             </div>
