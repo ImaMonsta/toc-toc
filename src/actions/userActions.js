@@ -1,6 +1,7 @@
 import firebase from 'firebase'
 import { toastr } from 'react-redux-toastr'
 import { push } from 'react-router-redux'
+import store from '../store'
 
 export const CREATE_LOGIN_REQUEST = 'CREATE_LOGIN_REQUEST';
 export function createLoginRequest(user) {
@@ -58,11 +59,18 @@ export function userRequestFailed(message, code) {
 }
 
 export const EMAIL_VERIFICATION_REQUEST = 'EMAIL_VERIFICATION_REQUEST'
-export function emailVerificationRequest(code, questionary) {
+export function emailVerificationRequest(code) {
     return {
         type: EMAIL_VERIFICATION_REQUEST,
-        code,
-        questionary
+        code
+    }
+}
+
+export const EMAIL_VERIFICATION_RESPONSE = 'EMAIL_VERIFICATION_RESPONSE'
+export function emailVerificationResponse(verified) {
+    return {
+        type: EMAIL_VERIFICATION_RESPONSE,
+        verified
     }
 }
 
@@ -110,31 +118,59 @@ export function createLogin(user) {
     return dispatch => {
         dispatch(createLoginRequest(user));
         return firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-            .then(user => {
-                toastr.info(``, `Verification email sent to ${user.email}!`);
+            .then(response => {
+                console.log(response);
+                toastr.info(``, `Verification email sent to ${response.email}!`);
                 dispatch(push('/'))
-                dispatch(createLoginResponse(user));
-                user.sendEmailVerification();
+                dispatch(createLoginResponse(response));
+                response.sendEmailVerification();
+                console.log(response);
+                store.firebase.set(`/candidates/-${response.uid}`,
+                    {
+                        fullName: user.fullName,
+                        email: response.email,
+                        lastUpdate: Date.now(),
+                    });
             })
             .catch(error => {
                 const { code, message } = error;
                 toastr.error(`Error: ${code}`, `${message}`);
+                console.error(code, message);
             });
     }
 }
 
-export function verifyEmail(actionCode, questionary) {
+export function verifyEmail(actionCode) {
     return dispatch => {
-        console.log(actionCode);
-        dispatch(emailVerificationRequest(actionCode, questionary))
+        dispatch(emailVerificationRequest(actionCode))
         return firebase.auth().applyActionCode(actionCode)
             .then(resp => {
-                dispatch(push('/'));
-                console.log(resp);
+                dispatch(emailVerificationResponse(true));
             })
             .catch(error => {
                 const { code, message } = error;
                 toastr.error(`Error: ${code}`, `${message}`);
+
             });
     }
+}
+
+
+export function setProfileInfo(candidate, address, phone, title, fb, tw, g, lin) {
+    return dispatch => {
+        store.firebase.set(`/candidates/-${candidate}/lastUpdate`, Date.now())
+        const detail = {
+            address,
+            phone,
+            title,
+            fb,
+            tw,
+            g,
+            lin
+        }
+        console.log(detail);
+        return  store.firebase.set(`/candidates/-${candidate}/profile`, detail);
+       
+    }
+
 }

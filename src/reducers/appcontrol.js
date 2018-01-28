@@ -1,4 +1,4 @@
-import { TOOGLE_REGISTER } from '../actions/controlActions'
+import { TOOGLE_REGISTER, TOOGLE_EDIT_CANDIDATE, OPTION_MENU_EDIT_CANDIDATE } from '../actions/controlActions'
 
 function appcontrol(state = [], action) {
     switch (action.type) {
@@ -6,6 +6,16 @@ function appcontrol(state = [], action) {
             return {
                 ...state,
                 'registerIsCandidate' : action.isOn
+            }
+        case TOOGLE_EDIT_CANDIDATE:
+            return {
+                ...state,
+                'editCandidate': !state.editCandidate 
+            }
+        case OPTION_MENU_EDIT_CANDIDATE:
+            return {
+                ...state,
+                'optionMenuCandidate': action.option
             }
         default:
             break;

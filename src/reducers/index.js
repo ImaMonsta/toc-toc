@@ -7,6 +7,6 @@ import user from './user';
 import candidates from './candidates';
 import appcontrol from './appcontrol';
 
-const rootReducer = combineReducers({ user, candidates, appcontrol, toastr, router, firabse: firebaseReducer });
+const rootReducer = combineReducers({ user, candidates, appcontrol, toastr, router, firebase: firebaseReducer });
 
 export default rootReducer;

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Notidication extends Component {
+class Notification extends Component {
+    componentDidMount() {
+        if(this.props.action) this.props.action();
+    }
+    
     render() {
         const {header, description, icon} = this.props;
         return (
@@ -17,4 +21,4 @@ class Notidication extends Component {
     }
 }
 
-export default Notidication;
+export default Notification;

@@ -71,9 +71,6 @@ class Questionary extends Component {
             ['Inquieto', 'Popular', 'Buen Vecino', 'Devoto']
         ];
 
-
-        //const pushSample = (e) => { e.preventDefault(); console.log('todos/german', this.questionaryResult()); };
-
         return (
             <div className="tr-profile section-padding" >
                 <div className="container">

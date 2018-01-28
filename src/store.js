@@ -21,7 +21,9 @@ const defaultState = {
   candidates: {},
   user: {},
   appcontrol: {
-    registerIsCandidate: true
+    registerIsCandidate: true,
+    editCandidate: false,
+    optionMenuCandidate: 1
   }
 }
 

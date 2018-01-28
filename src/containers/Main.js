@@ -39,9 +39,9 @@ class Main extends Component {
                     <Header key="Header" {...this.props} />
                     <Switch>
                         <Route exact path="/" component={Index} />
-                        <Route exact path="/signin" render={() => (<SignIn {...this.props} />)} />
-                        <Route exact path="/signup" render={() => (<SignUp {...this.props} />)} />
-                        <Route exact path="/profile/:uid" component={Profile} />
+                        <Route exact path="/signin" render={() => (<SignIn {...this.props}  />)} />
+                        <Route exact path="/signup" render={() => (<SignUp {...this.props} store={{...this.context}}/>)} />
+                        <Route exact path="/profile/:uid" render={(routeProps) => (<Profile props={{...routeProps, ...this.props }}/>)} />
                         <Route exact path="/verification" render={(self) => (<Verification {...this.props} search={self.location.search}/>)} />
                         <Route component={NotFound} />
                     </Switch>

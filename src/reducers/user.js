@@ -1,4 +1,12 @@
-import { CREATE_LOGIN_REQUEST, CREATE_LOGIN_RESPONSE, LOGIN_RESPONSE, LOGOUT_RESPONSE, LOGIN_REQUEST, CHECK_USER_STATE_RESPONSE } from '../actions/userActions'
+import {
+    CREATE_LOGIN_REQUEST,
+    CREATE_LOGIN_RESPONSE,
+    LOGIN_RESPONSE,
+    LOGOUT_RESPONSE,
+    LOGIN_REQUEST,
+    CHECK_USER_STATE_RESPONSE,
+    EMAIL_VERIFICATION_RESPONSE
+} from '../actions/userActions'
 
 function user(state = [], action) {
     switch (action.type) {
@@ -11,12 +19,14 @@ function user(state = [], action) {
         case CHECK_USER_STATE_RESPONSE:
             if (!action.user) return {}
             const { email, uid, emailVerified } = action.user;
-            console.log(action.user);
-            return  {
+            return {
                 email,
                 uid,
                 emailVerified
             }
+        case EMAIL_VERIFICATION_RESPONSE:
+            state.emailVerified = action.verified;
+            return { ...state };
         default:
             break;
     }
