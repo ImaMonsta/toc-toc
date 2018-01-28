@@ -24,9 +24,9 @@ class Header extends Component {
                             <div className="collapse navbar-collapse" id="navbar-collapse">
                                 <ul className="nav navbar-nav">
                                     <li className="tr-dropdown active"><Link to="/">Home</Link></li>
-                                    <li><a href="job-post.html">Post A Job</a></li>
-                                    <li><a href="listing.html">Job List</a></li>
-                                    <li><a href="job-details.html">Job Details</a></li>
+                                    <li><Link to="/jobpost">Post A Job</Link></li>
+                                    <li><Link to="/joblist">Job List</Link></li>
+                                    {/* <li><a href="job-details.html">Job Details</a></li> */}
                                 </ul>
                             </div>
                         </div>{/*<!-- /.navbar-left -->*/}
@@ -47,7 +47,7 @@ class Header extends Component {
                                 }
                             </ul>{/*<!-- /.sign-in -->*/}
 
-                            <a href="job-post.html" className="btn btn-primary">Post Job</a>
+                            {/* <a href="job-post.html" className="btn btn-primary">Post Job</a> */}
                         </div>{/*<!-- /.nav-right -->*/}
                     </div>{/*<!-- /.container -->*/}
                 </nav>{/*<!-- /.navbar -->*/}

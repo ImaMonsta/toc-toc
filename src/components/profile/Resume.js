@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Resume extends Component {
     render() {
         return (
-            <div role="tabpanel" className="tab-pane section" id="resume">
+            <div role="tabpanel" className="tab-pane section active in" id="resume">
                 <ul className="tr-list resume-info">
                     <li className="career-objective">
                         <div className="icon">

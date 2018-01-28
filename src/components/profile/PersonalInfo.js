@@ -5,29 +5,9 @@ class PersonalInfo extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        const { address, phone, title, fb, tw, g, lin } = this.props.detail;
         this.state = {
-            address: '',
-            phone: '',
-            title: '',
-            fb: '',
-            tw: '',
-            g: '',
-            lin: ''
-        }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        const { detail } = nextProps;
-        if(detail) {
-            this.setState( {
-                address: detail.address,
-                phone: detail.phone,
-                title: detail.title,
-                fb: detail.fb,
-                tw: detail.tw,
-                g: detail.g,
-                lin: detail.lin,
-            })
+            address, phone, title, fb, tw, g, lin
         }
     }
     
@@ -37,20 +17,13 @@ class PersonalInfo extends Component {
         const { address, phone, title, fb, tw, g, lin} = this.state;
         this.props.setProfileInfo(
             this.props.candidate,
-            address,
-            phone,
-            title,
-            fb,
-            tw,
-            g,
-            lin
+            address, phone,  title, fb, tw, g, lin
         );
         this.props.toogleCandidate();
     }
 
     render() {
         const { lastUpdate, fullName, email, toogleCandidate, appcontrol } = this.props;
-       
         return (
             <div role="tabpanel" className="tab-pane fade in active account-info" id="account-info">
                 <div className="tr-fun-fact">
@@ -133,17 +106,17 @@ class PersonalInfo extends Component {
                                     <li>Email<span><a href="">{email}</a></span></li>
                                     <li>
                                         <div className="form-group">
-                                            Address <input value={ this.state.address } onChange={input => this.setState({address: input.value})} type="text" disabled={!appcontrol.editCandidate} className="form-control" placeholder="San Francisco, CA, US"/>
+                                            Address <input value={ this.state.address } onChange={input => this.setState({ address: input.target.value})} type="text" disabled={!appcontrol.editCandidate} className="form-control" placeholder="San Francisco, CA, US"/>
                                         </div> 
                                     </li>
                                     <li>
                                         <div className="form-group">
-                                            Phone Number <input ref="phone" type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="+0123456789"/>
+                                            Phone Number <input value={ this.state.phone } onChange={input => this.setState({ phone: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="+0123456789"/>
                                         </div> 
                                     </li>
                                     <li>
                                         <div className="form-group">
-                                            Industry Expertise <input ref="title" type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="UI & UX Designer"/>
+                                            Industry Expertise <input value={ this.state.title } onChange={input => this.setState({ title: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="UI & UX Designer"/>
                                         </div> 
                                     </li>
                                 </ul>
@@ -158,25 +131,25 @@ class PersonalInfo extends Component {
                             <li>
                                 <div className="form-inline">
                                     <i className="fa fa-facebook"></i>
-                                    <input ref="fb" type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.facebook.com/jhondoe"/>
+                                    <input value={ this.state.fb } onChange={input => this.setState({ fb: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.facebook.com/jhondoe"/>
                                 </div> 
                             </li>
                             <li>
                                 <div className="form-inline">
                                     <i className="fa fa-twitter"></i>
-                                    <input ref="tw" type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.twitter.com/jhondoe"/>
+                                    <input value={ this.state.tw } onChange={input => this.setState({ tw: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.twitter.com/jhondoe"/>
                                 </div> 
                             </li>
                             <li>
                                 <div className="form-inline">
                                     <i className="fa fa-google-plus"></i>
-                                    <input ref="g" type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.googleplus.com/jhondoe"/>
+                                    <input value={ this.state.g } onChange={input => this.setState({ g: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.googleplus.com/jhondoe"/>
                                 </div> 
                             </li>
                             <li>
                                 <div className="form-inline">
                                     <i className="fa fa-linkedin"></i>
-                                    <input ref="lin" type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.linkedin.com/jhondoe"/>
+                                    <input value={ this.state.lin } onChange={input => this.setState({ lin: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.linkedin.com/jhondoe"/>
                                 </div> 
                             </li>
                         </ul>

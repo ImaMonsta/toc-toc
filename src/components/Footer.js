@@ -8,43 +8,33 @@ class Footer extends Component {
                 <div className="footer-top section-padding">
                     <div className="container">
                         <div className="row">
-                            <div className="col-sm-3">
+                            <div className="col-sm-4">
                                 <div className="footer-widget">
                                     <h3>About Us</h3>
                                     <ul className="tr-list">
-                                        <li><a href="">About Seeker</a></li>
-                                        <li><a href="">Terms & Conditions</a></li>
-                                        <li><a href="">International Partners</a></li>
-                                        <li><a href="">Privacy Policy</a></li>
-                                        <li><a href="">Feedback</a></li>
-                                        <li><a href="">Contact Us</a></li>
+                                        <li><Link to="about">About knocknock</Link></li>
+                                        <li><Link to="contact">Contact Us</Link></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-sm-3">
+                            <div className="col-sm-4">
                                 <div className="footer-widget">
                                     <h3>Job Seekers</h3>
                                     <ul className="tr-list">
-                                        <li><a href="">Create Account</a></li>
-                                        <li><a href="">Career Counseling</a></li>
-                                        <li><a href="">My Bdjobs</a></li>
-                                        <li><a href="">FAQ</a></li>
-                                        <li><a href="">Video Guides</a></li>
+                                        <li><Link to="signup">Create Account</Link></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-sm-3">
+                            <div className="col-sm-4">
                                 <div className="footer-widget">
                                     <h3>Employers</h3>
                                     <ul className="tr-list">
-                                        <li><a href="">Create Account</a></li>
-                                        <li><a href="">Products/Service</a></li>
+                                        <li><Link to="signup">Create Account</Link></li>
                                         <li><a href="">Post a Job</a></li>
-                                        <li><a href="">FAQ</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-sm-3">
+                            {/* <div className="col-sm-3">
                                 <div className="footer-widget">
                                     <h3>Newsletter</h3>
                                     <p>Earum cumque doloribus, incidunt! Tempora voluptatibus</p>
@@ -57,15 +47,15 @@ class Footer extends Component {
                                         </div>
                                     </form>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>{/*<!-- /.row -->*/}
                     </div>{/*<!-- /.container -->*/}
                 </div>{/*<!-- /.footer-top -->*/}
                 <div className="footer-bottom">
                     <div className="container">
                         <div className="copyright">
-                            <p>Copyright © 2018 <Link to="/">toctoc.network.</Link> All rights reserved.</p>
-                        </div>
+                            <p>Copyright © 2018 <Link to="/">knocknock.network.</Link> All rights reserved.</p>
+                         </div>{/*
                         <div className="footer-social pull-right">
                             <ul className="tr-list">
                                 <li><a href="" title="Facebook"><i className="fa fa-facebook"></i></a></li>
@@ -73,7 +63,7 @@ class Footer extends Component {
                                 <li><a href="" title="Google Plus"><i className="fa fa-google-plus"></i></a></li>
                                 <li><a href="" title="Youtube"><i className="fa fa-youtube"></i></a></li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </div>{/*<!-- /.footer-bottom -->*/}
             </div>

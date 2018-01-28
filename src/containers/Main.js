@@ -13,6 +13,7 @@ import NotFound from '../containers/NotFound';
 import SignIn from '../containers/SignIn';
 import SignUp from '../containers/SignUp';
 import Profile from '../containers/Profile';
+import About from '../containers/About';
 import Verification from '../containers/Verification';
 //<!--global components-->
 import Header from '../components/Header';
@@ -39,6 +40,7 @@ class Main extends Component {
                     <Header key="Header" {...this.props} />
                     <Switch>
                         <Route exact path="/" component={Index} />
+                        <Route exact path="/about" component={About} />
                         <Route exact path="/signin" render={() => (<SignIn {...this.props}  />)} />
                         <Route exact path="/signup" render={() => (<SignUp {...this.props} store={{...this.context}}/>)} />
                         <Route exact path="/profile/:uid" render={(routeProps) => (<Profile props={{...routeProps, ...this.props }}/>)} />

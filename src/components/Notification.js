@@ -14,7 +14,7 @@ class Notification extends Component {
                     <i className={`fa ${icon}`} aria-hidden="true"></i>
                 </div>
                 <h1>{header}</h1>
-                <p>{description}</p>
+                <div>{description}</div>
                 <Link to="/" className="btn btn-primary">Back to home</Link>
             </div>
         );

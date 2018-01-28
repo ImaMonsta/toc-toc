@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Banner from '../components/Banner';
+import Banner from '../components/banner/Banner';
 import CreateAccount from '../components/CreateAccount';
 
 class SignUp extends Component {
