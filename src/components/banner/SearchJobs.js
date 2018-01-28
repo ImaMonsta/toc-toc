@@ -9,10 +9,8 @@ class SearchJobs extends Component {
                     <div className="dropdown tr-change-dropdown">
                         <a data-toggle="dropdown" href="" aria-expanded="false"><span className="change-text">Location</span><i className="fa fa-angle-down"></i></a>
                         <ul className="dropdown-menu tr-change">
-                            <li><a href="">Location</a></li>
-                            <li><a href="">Location 1</a></li>
-                            <li><a href="">Location 2</a></li>
-                            <li><a href="">Location 3</a></li>
+                            <li><a>Mexico</a></li>
+                            <li><a>Spain</a></li>
                         </ul>
                     </div>{/*<!-- /.category-change -->*/}
                     <button type="submit" className="btn btn-primary" value="Search">Search</button>

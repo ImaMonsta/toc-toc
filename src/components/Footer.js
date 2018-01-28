@@ -21,7 +21,7 @@ class Footer extends Component {
                                 <div className="footer-widget">
                                     <h3>Job Seekers</h3>
                                     <ul className="tr-list">
-                                        <li><Link to="signup">Create Account</Link></li>
+                                        <li><Link to="/signup">Create Account</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -29,8 +29,8 @@ class Footer extends Component {
                                 <div className="footer-widget">
                                     <h3>Employers</h3>
                                     <ul className="tr-list">
-                                        <li><Link to="signup">Create Account</Link></li>
-                                        <li><a href="">Post a Job</a></li>
+                                        <li><Link to="/signup">Create Account</Link></li>
+                                        <li><Link to="/jobpost">Post a Job</Link></li>
                                     </ul>
                                 </div>
                             </div>
