@@ -27,15 +27,15 @@ class Profile extends Component {
                             </div>
                             <ul className="job-meta tr-list list-inline">
                                 { profile.address && <li><i className="fa fa-map-marker" aria-hidden="true"></i>{ profile.address }</li> }
-                                { detail.phone && <li><i className="fa fa-phone" aria-hidden="true"></i>{ detail.phone }</li>}
+                                { detail && detail.phone && <li><i className="fa fa-phone" aria-hidden="true"></i>{ detail.phone }</li>}
                                 <li><i className="fa fa-envelope" aria-hidden="true"></i><a href="">{ profile.email }</a></li>
-                                { detail.title && <li><i className="fa fa-briefcase" aria-hidden="true"></i>{ detail.title }</li> }
+                                { detail &&  detail.title && <li><i className="fa fa-briefcase" aria-hidden="true"></i>{ detail.title }</li> }
                             </ul>
                             <ul className="breadcrumb-social social-icon-bg  tr-list">
-                                { detail.fb && <li><a target="_blank" href={ detail.fb }><i className="fa fa-facebook"></i><span>Facebook</span> </a></li> }
-                                { detail.tw && <li><a target="_blank" href={ detail.tw }><i className="fa fa-twitter"></i> <span>Twitter</span> </a></li> }
-                                { detail.g && <li><a target="_blank" href={ detail.g }><i className="fa fa-google-plus"></i> <span>Google Plus</span> </a></li> }
-                                { detail.lin && <li><a target="_blank" href={ detail.lin }><i className="fa fa-linkedin"></i><span>Linkedin</span> </a></li> }
+                                { detail &&  detail.fb && <li><a target="_blank" href={ detail.fb }><i className="fa fa-facebook"></i><span>Facebook</span> </a></li> }
+                                { detail &&  detail.tw && <li><a target="_blank" href={ detail.tw }><i className="fa fa-twitter"></i> <span>Twitter</span> </a></li> }
+                                { detail &&  detail.g && <li><a target="_blank" href={ detail.g }><i className="fa fa-google-plus"></i> <span>Google Plus</span> </a></li> }
+                                { detail &&  detail.lin && <li><a target="_blank" href={ detail.lin }><i className="fa fa-linkedin"></i><span>Linkedin</span> </a></li> }
                             </ul>
                         </div>
                     </div>{/*<!-- /.container -->*/}

@@ -5,7 +5,7 @@ class PersonalInfo extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        const { address, phone, title, fb, tw, g, lin } = this.props.detail;
+        const { address, phone, title, fb, tw, g, lin } = props.detail || {};
         this.state = {
             address, phone, title, fb, tw, g, lin
         }
