@@ -27,3 +27,5 @@ script:
 
 after_success:
   - npm run firebase -- deploy --token $FIREBASE_TOKEN
+
+  - curl https://sentry.io/api/0/organizations/g3rm4n/releases/ -X POST -H "Authorization':' Bearer $SENTRY_TOKEN" -H "Content-Type':' application/json"  -d "{ 'version':' 'fd08acf51211f5b3c84ce2f49a96f25d33f753ea', 'refs':' [{ 'repository":"imamonsta/toc-toc', 'commit':'fd08acf51211f5b3c84ce2f49a96f25d33f753ea' }], 'projects':['TocToc'] }"
