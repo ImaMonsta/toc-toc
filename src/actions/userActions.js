@@ -156,9 +156,9 @@ export function verifyEmail(actionCode) {
 }
 
 
-export function setProfileInfo(candidate, address, phone, title, fb, tw, g, lin) {
+export function setProfileInfo(userId, address, phone, title, fb, tw, g, lin) {
     return dispatch => {
-        store.firebase.set(`/candidates/-${candidate}/lastUpdate`, Date.now())
+        store.firebase.set(`/candidates/-${userId}/lastUpdate`, Date.now())
         const detail = {
             address,
             phone,
@@ -168,9 +168,20 @@ export function setProfileInfo(candidate, address, phone, title, fb, tw, g, lin)
             g,
             lin
         }
-        console.log(detail);
-        return  store.firebase.set(`/candidates/-${candidate}/profile`, detail);
+        //console.log(detail);
+        return  store.firebase.set(`/candidates/-${userId}/profile`, detail);
        
     }
 
+}
+
+export function pushProfileImage(userId, name, image) {
+    return dispatch => {
+        var storageRef = firebase.storage().ref();
+        var imageRef = storageRef.child(`profile/${userId}/${name}`);
+        imageRef.put(image).then((snapshot)  => {
+            store.firebase.set(`/candidates/-${userId}/profile/image`, snapshot.downloadURL)
+            toastr.success(`Storage response: ${snapshot.state}`, `Image uploaded`)
+        });
+    }
 }

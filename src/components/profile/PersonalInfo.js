@@ -5,6 +5,7 @@ class PersonalInfo extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleImage = this.handleImage.bind(this);
         const { address, phone, title, fb, tw, g, lin } = props.detail || {};
         this.state = {
             address, phone, title, fb, tw, g, lin
@@ -22,8 +23,18 @@ class PersonalInfo extends Component {
         this.props.toogleCandidate();
     }
 
+    handleImage(e) {
+        const reader = new FileReader();
+        reader.onload = (response) => {
+            var arrayBuffer = response.currentTarget.result;
+            this.props.pushProfileImage(this.props.candidate, e[0].name, arrayBuffer);
+        }
+        reader.readAsArrayBuffer(e[0]);
+      
+    }
+
     render() {
-        const { lastUpdate, fullName, email, toogleCandidate, appcontrol } = this.props;
+        const { lastUpdate, fullName, email, toogleCandidate, appcontrol, detail } = this.props;
         return (
             <div role="tabpanel" className="tab-pane fade in active account-info" id="account-info">
                 <div className="tr-fun-fact">
@@ -90,11 +101,11 @@ class PersonalInfo extends Component {
 
                         <div className="change-photo">
                             <div className="user-image">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/toc-toc-network.appspot.com/o/AS_Ghost1.jpg?alt=media&token=8861b2d5-f0bf-4264-99ee-8d3b76035028" alt="author" className="img-responsive" />
+                                <img src={detail.image} alt="author" className="img-responsive" />
                             </div>
                             <div className="upload-photo">
                                 <label className="btn btn-primary" htmlFor="upload-photo">
-                                    <input type="file" id="upload-photo" />
+                                    <input ref="image" type="file" id="upload-photo" accept="image/*" onChange={(e) => this.handleImage(e.target.files)}/>
                                     Change Photo
                                 </label>
                                 <span className="max-size">Max 20 MB</span>

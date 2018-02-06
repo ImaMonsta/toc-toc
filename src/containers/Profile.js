@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { firebaseConnect, isLoaded } from 'react-redux-firebase'
 
-import PersonalInfo from '../components/profile/PersonalInfo'
+import  PersonalInfo  from '../components/profile/PersonalInfo'
 import Resume from '../components/profile/Resume'
 import EditResume from '../components/profile/EditResume'
+import Questionary from '../components/Questionary'
 
 class Profile extends Component {
     render() {
         const { profile: response } = this.props;
-        const { match, appcontrol, toogleCandidate, setProfileInfo, optionMenuEditCandidate } = this.props.props;
+        const { match, appcontrol, toogleCandidate, setProfileInfo, optionMenuEditCandidate, pushProfileImage } = this.props.props;
         const profile = isLoaded(response) ?  response[`-${match.params.uid}`] : {};
         const detail = isLoaded(response) ? profile.profile : {}
 
@@ -20,7 +21,7 @@ class Profile extends Component {
                     <div className="container">
                         <div className="breadcrumb-info text-center">
                             <div className="user-image">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/toc-toc-network.appspot.com/o/AS_Ghost1.jpg?alt=media&token=8861b2d5-f0bf-4264-99ee-8d3b76035028" alt="author" className="img-responsive" />
+                                <img src={detail.image} alt="author" className="img-responsive" />
                             </div>
                             <div className="user-title">
                                 <h1>{profile.fullName}</h1>
@@ -50,6 +51,7 @@ class Profile extends Component {
                                         <li role="presentation" className={ appcontrol.optionMenuCandidate === 1 ? 'active' : ''}><a onClick={e => optionMenuEditCandidate(1)} aria-controls="account-info" role="tab" data-toggle="tab"><i className="fa fa-life-ring" aria-hidden="true" ></i> Account Info</a></li>
                                         <li role="presentation" className={ appcontrol.optionMenuCandidate === 2 ? 'active' : ''}><a onClick={e => optionMenuEditCandidate(2)} aria-controls="resume" role="tab" data-toggle="tab"><span><i className="fa fa-user-o" aria-hidden="true"></i></span> My Resume</a></li>
                                         <li role="presentation" className={ appcontrol.optionMenuCandidate === 3 ? 'active' : ''}><a onClick={e => optionMenuEditCandidate(3)} aria-controls="edit-resume" role="tab" data-toggle="tab"><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span> Edit Resume</a></li>
+                                        <li role="presentation" className={ appcontrol.optionMenuCandidate === 4 ? 'active' : ''}><a onClick={e => optionMenuEditCandidate(4)} aria-controls="questionary" role="tab" data-toggle="tab"><span><i className="fa fa-question-circle" aria-hidden="true"></i></span> Questionary <span className="badge">1</span></a></li>
                                         {/* <li role="presentation"><a href="#bookmark" aria-controls="bookmark" role="tab" data-toggle="tab"><span><i className="fa fa-bookmark-o" aria-hidden="true"></i></span> Bookmark</a></li>
                                         <li role="presentation"><a href="#archived" aria-controls="archived" role="tab" data-toggle="tab"><span><i className="fa fa-clone" aria-hidden="true"></i></span> Archived Apply Job</a></li>
                                         <li role="presentation"><a href="#close-account" aria-controls="close-account" role="tab" data-toggle="tab"><span><i className="fa fa-scissors" aria-hidden="true"></i></span> Close Account</a></li>
@@ -59,14 +61,13 @@ class Profile extends Component {
                             </div>
                             <div className="col-sm-8 col-md-9">
                                 <div className="tab-content">
-
-        { isLoaded(response)  && appcontrol.optionMenuCandidate === 1 && <PersonalInfo candidate={ match.params.uid } fullName={profile.fullName} email={profile.email} lastUpdate={profile.lastUpdate} appcontrol={appcontrol} toogleCandidate={toogleCandidate} setProfileInfo={setProfileInfo} detail={detail} /> }
-        { isLoaded(response)  && appcontrol.optionMenuCandidate === 2 && <Resume /> }
-        { isLoaded(response)  && appcontrol.optionMenuCandidate === 3 && <EditResume /> }
-
-                                    
-
-                                    
+       
+        { isLoaded(response) && {
+            '1': <PersonalInfo candidate={ match.params.uid } fullName={profile.fullName} email={profile.email} lastUpdate={profile.lastUpdate} appcontrol={appcontrol} toogleCandidate={toogleCandidate} setProfileInfo={setProfileInfo} detail={detail} pushProfileImage={pushProfileImage} />,
+            '2': <Resume />,
+            '3': <EditResume />,
+            '4': <Questionary />,
+        }[`${appcontrol.optionMenuCandidate }`]}
 
                                     <div role="tabpanel" className="tab-pane bookmark" id="bookmark">
                                         <div className="row">

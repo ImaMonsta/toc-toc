@@ -72,7 +72,7 @@ class Questionary extends Component {
         ];
 
         return (
-            <div className="tr-profile section-padding" >
+            <div role="tabpanel" className="tab-pane edit-resume section active in" id="questionary">
                 <div className="container">
                     <div className="row">
                     </div>
@@ -91,7 +91,7 @@ class Questionary extends Component {
                                 <form className="tr-form" onSubmit={ this.handleSubmit }>
                                     {
                                         questions.map((question, i) =>
-                                            <div className="col-sm-6" key={ `baseDiv${i}` }>
+                                            <div className="col-sm-12" key={ `baseDiv${i}` }>
                                                 <div className="form-group">
                                                     <span className="col-sm-offset-5  col-sm-2">More</span>
                                                     <span className="col-sm-2">Less</span>
@@ -101,7 +101,7 @@ class Questionary extends Component {
                                         )
                                     }
                                     <div className="col-sm-12 section text-center">
-                                        <button type="submit" className="btn btn-primary">Complete Registration</button>
+                                        <button type="submit" className="btn btn-primary">Submit Questionary</button>
                                     </div>
                                 </form>
                             </div>
