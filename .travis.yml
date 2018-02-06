@@ -27,3 +27,4 @@ script:
 
 after_success:
   - npm run firebase -- deploy --token $FIREBASE_TOKEN
+  - curl https://sentry.io/api/hooks/release/builtin/250533/57e9d53d6937d18ea549071d5fea74d93648961205cbe5e01213946c088b30e8/ -X POST -H 'Content-Type: application/json' -d '{"version": "$TRAVIS_COMMIT"}'
