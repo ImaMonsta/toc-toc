@@ -36,4 +36,4 @@ after_success:
       \"repository\": \"imamonsta/toc-toc\", 
       \"commit\": \"$TRAVIS_COMMIT\" 
     }], 
-  \"projects\": [ \"TocToc \" ] }"
+  \"projects\": [\"TocToc \"] }'"
