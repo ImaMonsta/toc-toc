@@ -28,8 +28,9 @@ script:
 after_success:
   - npm run firebase -- deploy --token $FIREBASE_TOKEN
   - "curl https://sentry.io/api/0/organizations/g3rm4n/releases/ 
--X POST -H 'Authorization': 'Bearer $SENTRY_TOKEN' 
--H 'Content-Type': 'application/json'  
+-X POST 
+-H ' Authorization: Bearer $SENTRY_TOKEN ' 
+-H ' Content-Type: application/json '  
 -d '{ 
     \"version\" : \"$TRAVIS_COMMIT\", 
     \"refs\":  [{ 
