@@ -27,4 +27,4 @@ script:
 
 after_success:
   - npm run firebase -- deploy --token $FIREBASE_TOKEN
-  - bash ./scripts/sentry.sh
+  - bash ./scripts/sentry.sh $SENTRY_TOKEN $TRAVIS_COMMIT
