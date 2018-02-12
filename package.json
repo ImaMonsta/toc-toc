@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^4.8.0",
+    "git-rev-sync": "^1.9.1",
     "history": "^4.7.2",
     "moment": "^2.20.1",
     "query-string": "^5.0.1",

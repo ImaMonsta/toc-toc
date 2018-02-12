@@ -178,7 +178,7 @@ export function setProfileInfo(userId, address, phone, title, fb, tw, g, lin) {
 export function pushProfileImage(userId, name, image) {
     return dispatch => {
         var storageRef = firebase.storage().ref();
-        var imageRef = storageRef.child(`profile/${userId}/${name}`);
+        var imageRef = storageRef.child(`profile/${userId}`);
         imageRef.put(image).then((snapshot)  => {
             store.firebase.set(`/candidates/-${userId}/profile/image`, snapshot.downloadURL)
             toastr.success(`Storage response: ${snapshot.state}`, `Image uploaded`)
