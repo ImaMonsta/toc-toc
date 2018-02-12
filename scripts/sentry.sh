@@ -8,7 +8,7 @@ curl https://sentry.io/api/0/organizations/g3rm4n/releases/ \
 {
     \"version\": \"$2\",
     \"refs\": [{
-        \"repository\":\"imamonsta/toc-toc\",
+        \"repository\":\"ImaMonsta/toc-toc\",
         \"commit\":\"$2\"
     }],
     \"projects\":[\"toctoc\"]
