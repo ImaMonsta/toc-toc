@@ -34,7 +34,8 @@ class PersonalInfo extends Component {
     }
 
     render() {
-        const { lastUpdate, fullName, email, toogleCandidate, appcontrol, detail } = this.props;
+        const { lastUpdate, toogleCandidate, appcontrol, profile } = this.props;
+        const { fullName, email, image} = profile;
         return (
             <div role="tabpanel" className="tab-pane fade in active account-info" id="account-info">
                 <div className="tr-fun-fact">
@@ -101,7 +102,7 @@ class PersonalInfo extends Component {
 
                         <div className="change-photo">
                             <div className="user-image">
-                                <img src={detail.image} alt="author" className="img-responsive" />
+                                <img src={image} alt="author" className="img-responsive" />
                             </div>
                             <div className="upload-photo">
                                 <label className="btn btn-primary" htmlFor="upload-photo">

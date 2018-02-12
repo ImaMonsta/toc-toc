@@ -21,7 +21,7 @@ class Profile extends Component {
                     <div className="container">
                         <div className="breadcrumb-info text-center">
                             <div className="user-image">
-                                <img src={detail.image} alt="author" className="img-responsive" />
+                                <img src={profile.image} alt="author" className="img-responsive" />
                             </div>
                             <div className="user-title">
                                 <h1>{profile.fullName}</h1>
@@ -63,7 +63,7 @@ class Profile extends Component {
                                 <div className="tab-content">
        
         { isLoaded(response) && {
-            '1': <PersonalInfo candidate={ match.params.uid } fullName={profile.fullName} email={profile.email} lastUpdate={profile.lastUpdate} appcontrol={appcontrol} toogleCandidate={toogleCandidate} setProfileInfo={setProfileInfo} detail={detail} pushProfileImage={pushProfileImage} />,
+            '1': <PersonalInfo candidate={ match.params.uid } profile={profile} appcontrol={appcontrol} toogleCandidate={toogleCandidate} setProfileInfo={setProfileInfo} detail={detail} pushProfileImage={pushProfileImage} />,
             '2': <Resume />,
             '3': <EditResume />,
             '4': <Questionary />,
