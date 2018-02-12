@@ -1,0 +1,1 @@
+sed -i "" "s/\/\/👾/\"release\":\"$1\"/g" src/App.js
