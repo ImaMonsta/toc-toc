@@ -13,7 +13,6 @@ class CreateAccount extends Component {
         let { dispatch } = this.props;
         e.preventDefault();
         const user = {
-            username: this.refs.username.value,
             password: this.refs.password.value,
             fullName: this.refs.fullName.value,
             email: this.refs.email.value
@@ -38,21 +37,18 @@ class CreateAccount extends Component {
                                 <div className="tab-content">
                                     <div role="tabpanel" className="tab-pane active" id="seeker">
                                         <div className="account-content">
-                                            <form action="" className="tr-form" onSubmit={this.handleSubmit}>
+                                            <form className="tr-form" onSubmit={this.handleSubmit}>
                                                 <div className="form-group">
-                                                    <input ref="fullName" type="text" className="form-control" placeholder="Full Name" />
+                                                    <input ref="fullName" type="text" className="form-control" placeholder="Full Name" required/>
                                                 </div>
                                                 <div className="form-group">
-                                                    <input ref="username" type="text" className="form-control" placeholder="Username" />
+                                                    <input ref="email" type="email" className="form-control" placeholder="your Email" required/>
                                                 </div>
                                                 <div className="form-group">
-                                                    <input ref="email" type="email" className="form-control" placeholder="your Email" />
+                                                    <input ref="password" type="password" className="form-control" placeholder="Password" required/>
                                                 </div>
                                                 <div className="form-group">
-                                                    <input ref="password" type="password" className="form-control" placeholder="Password" />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input ref="passwordConfirmation" type="password" className="form-control" placeholder="Confirm Password" />
+                                                    <input ref="passwordConfirmation" type="password" className="form-control" placeholder="Confirm Password" required/>
                                                 </div>
                                                 {
                                                     !registerIsCandidate && 
