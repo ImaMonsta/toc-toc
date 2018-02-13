@@ -10,6 +10,7 @@ class PersonalInfo extends Component {
         this.state = {
             address, phone, title, fb, tw, g, lin
         }
+        console.log(this.state);
     }
     
     
@@ -102,7 +103,7 @@ class PersonalInfo extends Component {
 
                         <div className="change-photo">
                             <div className="user-image">
-                                <img src={image} alt="author" className="img-responsive" />
+                                <img src={image || 'https://www.unicoos.com/img/profiles/default.png'} alt="author" className="img-responsive" />
                             </div>
                             <div className="upload-photo">
                                 <label className="btn btn-primary" htmlFor="upload-photo">
@@ -118,17 +119,17 @@ class PersonalInfo extends Component {
                                     <li>Email<span><a href="">{email}</a></span></li>
                                     <li>
                                         <div className="form-group">
-                                            Address <input value={ this.state.address } onChange={input => this.setState({ address: input.target.value})} type="text" disabled={!appcontrol.editCandidate} className="form-control" placeholder="San Francisco, CA, US"/>
+                                            Address <input value={ this.state.address || '' } onChange={input => this.setState({ address: input.target.value})} type="text" disabled={!appcontrol.editCandidate} className="form-control" placeholder="San Francisco, CA, US"/>
                                         </div> 
                                     </li>
                                     <li>
                                         <div className="form-group">
-                                            Phone Number <input value={ this.state.phone } onChange={input => this.setState({ phone: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="+0123456789"/>
+                                            Phone Number <input value={ this.state.phone || '' } onChange={input => this.setState({ phone: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="+0123456789"/>
                                         </div> 
                                     </li>
                                     <li>
                                         <div className="form-group">
-                                            Industry Expertise <input value={ this.state.title } onChange={input => this.setState({ title: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="UI & UX Designer"/>
+                                            Industry Expertise <input value={ this.state.title || '' } onChange={input => this.setState({ title: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="UI & UX Designer"/>
                                         </div> 
                                     </li>
                                 </ul>
@@ -143,25 +144,25 @@ class PersonalInfo extends Component {
                             <li>
                                 <div className="form-inline">
                                     <i className="fa fa-facebook"></i>
-                                    <input value={ this.state.fb } onChange={input => this.setState({ fb: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.facebook.com/jhondoe"/>
+                                    <input value={ this.state.fb || '' } onChange={input => this.setState({ fb: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.facebook.com/jhondoe"/>
                                 </div> 
                             </li>
                             <li>
                                 <div className="form-inline">
                                     <i className="fa fa-twitter"></i>
-                                    <input value={ this.state.tw } onChange={input => this.setState({ tw: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.twitter.com/jhondoe"/>
+                                    <input value={ this.state.tw || '' } onChange={input => this.setState({ tw: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.twitter.com/jhondoe"/>
                                 </div> 
                             </li>
                             <li>
                                 <div className="form-inline">
                                     <i className="fa fa-google-plus"></i>
-                                    <input value={ this.state.g } onChange={input => this.setState({ g: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.googleplus.com/jhondoe"/>
+                                    <input value={ this.state.g || '' } onChange={input => this.setState({ g: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.googleplus.com/jhondoe"/>
                                 </div> 
                             </li>
                             <li>
                                 <div className="form-inline">
                                     <i className="fa fa-linkedin"></i>
-                                    <input value={ this.state.lin } onChange={input => this.setState({ lin: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.linkedin.com/jhondoe"/>
+                                    <input value={ this.state.lin || '' } onChange={input => this.setState({ lin: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="https://www.linkedin.com/jhondoe"/>
                                 </div> 
                             </li>
                         </ul>

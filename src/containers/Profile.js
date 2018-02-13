@@ -12,8 +12,8 @@ class Profile extends Component {
     render() {
         const { profile: response } = this.props;
         const { match, appcontrol, toogleCandidate, setProfileInfo, optionMenuEditCandidate, pushProfileImage } = this.props.props;
-        const profile = isLoaded(response) ?  response[`-${match.params.uid}`] : {};
-        const detail = isLoaded(response) ? profile.profile : {}
+        const profile = isLoaded(response) && response[`-${match.params.uid}`] ?  response[`-${match.params.uid}`] : {};
+        const detail = isLoaded(response) && profile ? profile.profile : {}
 
         return (
             <div>
@@ -21,7 +21,7 @@ class Profile extends Component {
                     <div className="container">
                         <div className="breadcrumb-info text-center">
                             <div className="user-image">
-                                <img src={profile.image} alt="author" className="img-responsive" />
+                                <img src={ profile.image || 'https://www.unicoos.com/img/profiles/default.png'} alt="author" className="img-responsive" />
                             </div>
                             <div className="user-title">
                                 <h1>{profile.fullName}</h1>

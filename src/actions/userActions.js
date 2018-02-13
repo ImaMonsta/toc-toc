@@ -166,13 +166,13 @@ export function setProfileInfo(userId, address, phone, title, fb, tw, g, lin) {
   return dispatch => {
     store.firebase.set(`/candidates/-${userId}/lastUpdate`, Date.now());
     const detail = {
-      address,
-      phone,
-      title,
-      fb,
-      tw,
-      g,
-      lin
+      address: address || '',
+      phone: phone || '',
+      title: title || '',
+      fb: fb || '',
+      tw: tw || '',
+      g: g || '',
+      lin: lin || ''
     };
     //console.log(detail);
     return store.firebase.set(`/candidates/-${userId}/profile`, detail);
