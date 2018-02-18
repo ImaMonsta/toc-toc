@@ -9,7 +9,7 @@ import BannerSteps from '../components/banner/BannerSteps';
 class Index extends Component {
     render() {
         return ([
-            <Banner key="Banner" title="The Easiest Way to Get Your New Job" detail="We offer 12000 jobs vacation right now" search={true} />,
+            <Banner key="Banner" title="¡Abriendo las puertas del mundo laboral!" detail="We offer 12000 jobs vacation right now" search={true} />,
             // <BannerJobsCategories key="BannerJobsCategories" />,
             <BannerPostResume key="HeadBannerPostResumeer" />,
             <BannerJobsPosted key="BannerJobsPosted" />,
