@@ -1,6 +1,10 @@
 import firebase from "firebase";
-import { toastr } from "react-redux-toastr";
-import { push } from "react-router-redux";
+import {
+  toastr
+} from "react-redux-toastr";
+import {
+  push
+} from "react-router-redux";
 import store from "../store";
 
 export const CREATE_LOGIN_REQUEST = "CREATE_LOGIN_REQUEST";
@@ -95,7 +99,10 @@ export function logout() {
         dispatch(logoutResponse());
       })
       .catch(error => {
-        const { code, message } = error;
+        const {
+          code,
+          message
+        } = error;
         toastr.error(`Error: ${code}`, `${message}`);
       });
   };
@@ -113,7 +120,10 @@ export function login(email, password) {
         dispatch(loginResponse(user));
       })
       .catch(error => {
-        const { code, message } = error;
+        const {
+          code,
+          message
+        } = error;
         toastr.error(`Error: ${code}`, `${message}`);
       });
   };
@@ -122,6 +132,9 @@ export function login(email, password) {
 export function createLogin(user) {
   return dispatch => {
     dispatch(createLoginRequest(user));
+    if (user.password !== user.passwordConfirmation) {
+      return toastr.error('Security Exception', 'Password does not match');
+    }
     return firebase
       .auth()
       .createUserWithEmailAndPassword(user.email, user.password)
@@ -139,7 +152,10 @@ export function createLogin(user) {
         });
       })
       .catch(error => {
-        const { code, message } = error;
+        const {
+          code,
+          message
+        } = error;
         toastr.error(`Error: ${code}`, `${message}`);
         console.error(code, message);
       });
@@ -156,7 +172,10 @@ export function verifyEmail(actionCode) {
         dispatch(emailVerificationResponse(true));
       })
       .catch(error => {
-        const { code, message } = error;
+        const {
+          code,
+          message
+        } = error;
         toastr.error(`Error: ${code}`, `${message}`);
       });
   };

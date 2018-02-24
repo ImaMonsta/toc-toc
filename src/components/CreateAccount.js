@@ -11,11 +11,13 @@ class CreateAccount extends Component {
 
     handleSubmit(e) {
         let { dispatch } = this.props;
+        const { password, fullName, email, passwordConfirmation } = this.refs
         e.preventDefault();
         const user = {
-            password: this.refs.password.value,
-            fullName: this.refs.fullName.value,
-            email: this.refs.email.value
+            password: password.value,
+            fullName: fullName.value,
+            email: email.value,
+            passwordConfirmation: passwordConfirmation.value
         }
         dispatch(createLogin(user));
     }
