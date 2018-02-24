@@ -145,10 +145,11 @@ export function createLogin(user) {
         dispatch(createLoginResponse(response));
         response.sendEmailVerification();
         console.log(response);
-        store.firebase.set(`/candidates/-${response.uid}`, {
+        store.firebase.set(`/users/-${response.uid}`, {
           fullName: user.fullName,
           email: response.email,
-          lastUpdate: Date.now()
+          lastUpdate: Date.now(),
+          isCandidate: user.registerIsCandidate
         });
       })
       .catch(error => {
@@ -183,7 +184,7 @@ export function verifyEmail(actionCode) {
 
 export function setProfileInfo(userId, address, phone, title, fb, tw, g, lin) {
   return dispatch => {
-    store.firebase.set(`/candidates/-${userId}/lastUpdate`, Date.now());
+    store.firebase.set(`/users/-${userId}/lastUpdate`, Date.now());
     const detail = {
       address: address || '',
       phone: phone || '',
@@ -194,7 +195,7 @@ export function setProfileInfo(userId, address, phone, title, fb, tw, g, lin) {
       lin: lin || ''
     };
     //console.log(detail);
-    return store.firebase.set(`/candidates/-${userId}/profile`, detail);
+    return store.firebase.set(`/users/-${userId}/profile`, detail);
   };
 }
 
@@ -204,7 +205,7 @@ export function pushProfileImage(userId, name, image) {
     var imageRef = storageRef.child(`profile/${userId}`);
     imageRef.put(image).then(snapshot => {
       store.firebase.set(
-        `/candidates/-${userId}/image`,
+        `/users/-${userId}/image`,
         snapshot.downloadURL
       );
       toastr.success(`Storage response: ${snapshot.state}`, `Image uploaded`);

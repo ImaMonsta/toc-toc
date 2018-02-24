@@ -10,14 +10,15 @@ class CreateAccount extends Component {
     }
 
     handleSubmit(e) {
-        let { dispatch } = this.props;
+        let { dispatch, registerIsCandidate } = this.props;
         const { password, fullName, email, passwordConfirmation } = this.refs
         e.preventDefault();
         const user = {
             password: password.value,
             fullName: fullName.value,
             email: email.value,
-            passwordConfirmation: passwordConfirmation.value
+            passwordConfirmation: passwordConfirmation.value,
+            registerIsCandidate
         }
         dispatch(createLogin(user));
     }
@@ -41,10 +42,10 @@ class CreateAccount extends Component {
                                         <div className="account-content">
                                             <form className="tr-form" onSubmit={this.handleSubmit}>
                                                 <div className="form-group">
-                                                    <input ref="fullName" type="text" className="form-control" placeholder="Full Name" required/>
+                                                    <input ref="fullName" type="text" className="form-control" placeholder={registerIsCandidate ? 'Full Name' : 'Company Name'} required/>
                                                 </div>
                                                 <div className="form-group">
-                                                    <input ref="email" type="email" className="form-control" placeholder="your Email" required/>
+                                                    <input ref="email" type="email" className="form-control" placeholder="Email" required/>
                                                 </div>
                                                 <div className="form-group">
                                                     <input ref="password" type="password" className="form-control" placeholder="Password" required/>
@@ -52,17 +53,6 @@ class CreateAccount extends Component {
                                                 <div className="form-group">
                                                     <input ref="passwordConfirmation" type="password" className="form-control" placeholder="Confirm Password" required/>
                                                 </div>
-                                                {
-                                                    !registerIsCandidate && 
-                                                    <div className="dropdown tr-change-dropdown">
-                                                        <a data-toggle="dropdown" href="" aria-expanded="false"><span className="change-text">Industry Type</span><i className="fa fa-angle-down"></i></a>
-                                                        <ul className="dropdown-menu tr-change">
-                                                            <li><a href="">Industry 1</a></li>
-                                                            <li><a href="">Industry 2</a></li>
-                                                            <li><a href="">Industry 3</a></li>
-                                                        </ul>
-                                                    </div>
-                                                }
                                                 <button type="submit" className="btn btn-primary">Sign Up</button>
                                             </form>
                                             <div className="new-user text-center">

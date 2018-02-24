@@ -609,11 +609,11 @@ class Profile extends Component {
 
 export default compose(
     firebaseConnect((props) => [
-        `candidates/-${props.props.match.params.uid}` // { path: '/todos' } // object notation
+        `users/-${props.props.match.params.uid}` // { path: '/todos' } // object notation
     ]),
     connect(
         (state) => ({
-            profile: state.firebase.data.candidates,
+            profile: state.firebase.data.users,
             // profile: state.firebase.profile // load profile
         })
     )

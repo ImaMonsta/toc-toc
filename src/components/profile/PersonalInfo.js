@@ -36,7 +36,7 @@ class PersonalInfo extends Component {
 
     render() {
         const { lastUpdate, toogleCandidate, appcontrol, profile } = this.props;
-        const { fullName, email, image} = profile;
+        const { fullName, email, image, isCandidate} = profile;
         return (
             <div role="tabpanel" className="tab-pane fade in active account-info" id="account-info">
                 <div className="tr-fun-fact">
@@ -115,7 +115,7 @@ class PersonalInfo extends Component {
                         </div>
                         <div className="code-edit-small">
                                 <ul className="tr-list account-details">
-                                    <li>Display Name<span>{fullName}</span></li>
+                                    <li>{isCandidate ? 'Display Name': 'Company Name'}<span>{fullName}</span></li>
                                     <li>Email<span><a href="">{email}</a></span></li>
                                     <li>
                                         <div className="form-group">
@@ -129,7 +129,7 @@ class PersonalInfo extends Component {
                                     </li>
                                     <li>
                                         <div className="form-group">
-                                            Industry Expertise <input value={ this.state.title || '' } onChange={input => this.setState({ title: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder="UI & UX Designer"/>
+                                            Industry Expertise <input value={ this.state.title || '' } onChange={input => this.setState({ title: input.target.value})} type="text" disabled={!appcontrol.editCandidate}  className="form-control" placeholder={isCandidate ? 'UI & UX Designer' : 'IT'}/>
                                         </div> 
                                     </li>
                                 </ul>
