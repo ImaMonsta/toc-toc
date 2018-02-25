@@ -83,8 +83,13 @@ class Questionary extends Component {
                         <div role="tabpanel" className="tab-pane fade in active account-info" id="account-info">
                             <div className="section resume-last-updated">
                                 <div className="updated-info">
+                                <div>
+                                    <span className="pull-left">Please fill the following questionaries and send them to us</span><br/>
+                                    <span><a href="https://firebasestorage.googleapis.com/v0/b/toc-toc-network.appspot.com/o/questionnaires%2FPrueba%202%20Hoja%20de%20respuestas.xlsx?alt=media&token=71593551-f6a8-4963-9b91-2e967aae0d80" download>Questionaire 1</a></span><br/>
+                                    <span><a href="https://firebasestorage.googleapis.com/v0/b/toc-toc-network.appspot.com/o/questionnaires%2FPrueba%202.pdf?alt=media&token=f6b09365-497d-4bfd-a20c-70c736cbb058" download>Questionaire 2</a></span><br/>
+                                    <span><a href="https://firebasestorage.googleapis.com/v0/b/toc-toc-network.appspot.com/o/questionnaires%2FPrueba%203.xlsx?alt=media&token=b7108661-12b3-46fe-80b3-efb0135d883a" download>Questionaire 3</a></span><br/><br/>
+                                </div>
                                     <span className="pull-left">To complete your submission you have to fill the following questionnaire, the quiestions will be divided in groups of four, please select the word that better describe you and less describe you.</span>
-
                                 </div>
                             </div>{/*<!-- /.resume-last-updated -->*/}
                             <div className="section display-information">
