@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "draft-js": "^0.10.5",
     "firebase": "^4.10.1",
     "git-rev-sync": "^1.10.0",
     "history": "^4.7.2",

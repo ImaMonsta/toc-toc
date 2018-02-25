@@ -212,3 +212,12 @@ export function pushProfileImage(userId, name, image) {
     });
   };
 }
+
+export function editResume(userId, resume){
+  return dispatch => {
+    store.firebase.set(`/users/-${userId}/lastUpdate`, Date.now());
+    return store.firebase.set(`/users/-${userId}/resume`, resume).then((result) => {
+      toastr.success(`Success`,`Resume updated correctly`);
+    });
+  };
+}

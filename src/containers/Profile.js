@@ -11,7 +11,7 @@ import Questionary from '../components/Questionary'
 class Profile extends Component {
     render() {
         const { profile: response } = this.props;
-        const { match, appcontrol, toogleCandidate, setProfileInfo, optionMenuEditCandidate, pushProfileImage } = this.props.props;
+        const { match, appcontrol, toogleCandidate, setProfileInfo, optionMenuEditCandidate, pushProfileImage, editResume } = this.props.props;
         const profile = isLoaded(response) && response[`-${match.params.uid}`] ?  response[`-${match.params.uid}`] : {};
         const detail = isLoaded(response) && profile ? profile.profile : {}
 
@@ -64,8 +64,8 @@ class Profile extends Component {
        
         { isLoaded(response) && {
             '1': <PersonalInfo candidate={ match.params.uid } profile={profile} appcontrol={appcontrol} toogleCandidate={toogleCandidate} setProfileInfo={setProfileInfo} detail={detail} pushProfileImage={pushProfileImage} />,
-            '2': <Resume />,
-            '3': <EditResume />,
+            '2': <Resume  profile={profile} />,
+            '3': <EditResume userId={match.params.uid} profile={profile} editResume={editResume}/>,
             '4': <Questionary />,
         }[`${appcontrol.optionMenuCandidate }`]}
 

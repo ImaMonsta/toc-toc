@@ -5,6 +5,7 @@ import './App.css';
 import store from './store'
 import Main from './containers/Main'
 
+
 class App extends Component {
 
   componentWillMount() {

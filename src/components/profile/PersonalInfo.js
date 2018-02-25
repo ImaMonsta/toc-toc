@@ -10,9 +10,7 @@ class PersonalInfo extends Component {
         this.state = {
             address, phone, title, fb, tw, g, lin
         }
-        console.log(this.state);
     }
-    
     
     handleSubmit(e) {
         e.preventDefault();
