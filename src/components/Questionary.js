@@ -37,15 +37,14 @@ class Questionary extends Component {
     }
 
     handleSubmit(e) {
-        const { verifyEmail, urlTokens } = this.props;
         e.preventDefault();
-        verifyEmail(urlTokens.oobCode ,{});
+        this.props.postQuestionarie(this.props.user.uid, this.questionaryResult());
     }
 
     render() {
         const questions = [
             ['Persuasivo', 'Gentil', 'Humilde', 'Original'],
-            ['Fza de Voluntad', 'Mente Abierte', 'Complaciente', 'Animoso'],
+            ['Fza de Voluntad', 'Mente Abierta', 'Complaciente', 'Animoso'],
             ['Agresivo', 'Alma de la Fiesta', 'Comodino', 'Temeroso'],
             ['Confiado', 'Simpatizador', 'Tolerante', 'Afirmativo'],
             ['Agradable', 'Temeroso de Dios', 'Tenaz', 'Atractivo'],

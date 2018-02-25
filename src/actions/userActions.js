@@ -222,6 +222,15 @@ export function editResume(userId, resume){
   };
 }
 
+export function postQuestionarie(userId, question){
+  return dispatch => {
+    return store.firebase.set(`/users/-${userId}/question`, question).then((result) => {
+      toastr.success(`Success`,`Your questionarie was uploaded correctly`);
+      dispatch(push("/"));
+    });
+  };
+}
+
 export function postJob(userId, job) {
   return dispatch => {
     return store.firebase.push(`/jobs/-${userId}`, job).then((result) => {
