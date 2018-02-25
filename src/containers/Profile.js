@@ -10,8 +10,8 @@ import Questionary from '../components/Questionary'
 
 class Profile extends Component {
     render() {
-        const { profile: response } = this.props;
         const { match, appcontrol, toogleCandidate, setProfileInfo, optionMenuEditCandidate, pushProfileImage, editResume } = this.props.props;
+        const { profile: response } = this.props;
         const profile = isLoaded(response) && response[`-${match.params.uid}`] ?  response[`-${match.params.uid}`] : {};
         const detail = isLoaded(response) && profile ? profile.profile : {}
 
@@ -594,7 +594,7 @@ class Profile extends Component {
                                         <span>Are you sure, you want to delete your account?</span>
                                         <div className="buttons">
                                             <a href="" className="btn btn-primary">Delete Account</a>
-                                            <a href="" className="btn button-cancle">Cancle</a>
+                                            <a href="" className="btn button-cancle">Cancel</a>
                                         </div>
                                     </div>{/*<!-- /.tab-pane -->*/}
                                 </div>

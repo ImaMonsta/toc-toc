@@ -221,3 +221,12 @@ export function editResume(userId, resume){
     });
   };
 }
+
+export function postJob(userId, job) {
+  return dispatch => {
+    return store.firebase.push(`/jobs/-${userId}`, job).then((result) => {
+      toastr.success(`Success`,`Job posted succesfully`);
+      dispatch(push("/"));
+    });
+  };
+}

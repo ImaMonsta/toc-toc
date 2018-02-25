@@ -13,6 +13,7 @@ import NotFound from '../containers/NotFound';
 import SignIn from '../containers/SignIn';
 import SignUp from '../containers/SignUp';
 import Profile from '../containers/Profile';
+import JobPost from '../containers/JobPost'
 import About from '../containers/About';
 import Verification from '../containers/Verification';
 //<!--global components-->
@@ -45,6 +46,7 @@ class Main extends Component {
                         <Route exact path="/signup" render={() => (<SignUp {...this.props} store={{...this.context}}/>)} />
                         <Route exact path="/profile/:uid" render={(routeProps) => (<Profile props={{...routeProps, ...this.props }}/>)} />
                         <Route exact path="/verification" render={(self) => (<Verification {...this.props} search={self.location.search}/>)} />
+                        <Route exact path="/jobpost" render={(routeProps) => <JobPost { ...this.props }/>} />
                         <Route component={NotFound} />
                     </Switch>
                     <Footer key="Footer" />
