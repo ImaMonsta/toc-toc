@@ -41,15 +41,7 @@ class JobPost extends Component {
                                             <label>Job Category</label>
                                         </div>
                                         <div className="col-sm-9">
-                                            <div className="dropdown tr-change-dropdown">
-                                                <a data-toggle="dropdown" aria-expanded="true"><span className="change-text">Select a category</span><i className="fa fa-angle-down"></i></a>
-                                                <ul className="dropdown-menu tr-change">
-                                                    <li><a href="">Select a category</a></li>
-                                                    <li><a href="">Software Engineer</a></li>
-                                                    <li><a href="">Project Manager</a></li>
-                                                    <li><a href="">Graphics Designer</a></li>
-                                                </ul>								
-                                            </div>{/*<!-- /.dropdown -->*/}
+                                            <input ref="jobCategory" className="form-control" type="text" placeholder="ex, Software Engineer"/>
                                         </div>
                                     </div>{/*<!-- /.row -->*/}
                                     <div className="row job-category">
@@ -58,10 +50,9 @@ class JobPost extends Component {
                                         </div>
                                         <div className="col-sm-9">
                                             <div className="job-type">
-                                                <input ref="fullTime" type="radio" name="radio1" placeholder="full-time" id="full-time"/> <label htmlFor="full-time">Full Time</label>
                                                 <input ref="partTime" type="radio" name="radio1" placeholder="part-time" id="part-time"/> <label htmlFor="part-time">Part Time</label>
                                                 <input ref="freeLance" type="radio" name="radio1" placeholder="freelance" id="freelance"/> <label htmlFor="freelance">Freelance</label>	
-                                                <input ref="contract" type="radio" name="radio1" placeholder="contract" id="contract"/> <label htmlFor="contract">Contract</label>	
+                                                <input ref="homeOffice" type="radio" name="radio1" placeholder="contract" id="contract"/> <label htmlFor="contract">Home Office</label>	
                                             </div>{/*<!-- /.user-type -->*/}
                                         </div>
                                     </div>{/*<!-- /.row -->*/}
@@ -77,9 +68,38 @@ class JobPost extends Component {
                                                         <a data-toggle="dropdown" href="" aria-expanded="true"><span className="change-text">City</span><i className="fa fa-angle-down"></i></a>
                                                         <ul className="dropdown-menu tr-change">
                                                             <li><a href="">City</a></li>
-                                                            <li><a href="">Chicago</a></li>
-                                                            <li><a href="">Denver</a></li>
-                                                            <li><a href="">New Orleans</a></li>
+                                                            <li><a href="">Aguascalientes</a></li>
+                                                            <li><a href="">Baja California</a></li>
+                                                            <li><a href="">Baja California Sur</a></li>
+                                                            <li><a href="">Campeche</a></li>
+                                                            <li><a href="">Chiapas</a></li>
+                                                            <li><a href="">Chihuahua</a></li>
+                                                            <li><a href="">Ciudad de México</a></li>
+                                                            <li><a href="">Coahuila</a></li>
+                                                            <li><a href="">Colima</a></li>
+                                                            <li><a href="">Durango</a></li>
+                                                            <li><a href="">Guanajuato</a></li>
+                                                            <li><a href="">Guerrero</a></li>
+                                                            <li><a href="">Hidalgo</a></li>
+                                                            <li><a href="">Jalisco</a></li>
+                                                            <li><a href="">México</a></li>
+                                                            <li><a href="">Michoacan</a></li>
+                                                            <li><a href="">Morelos</a></li>
+                                                            <li><a href="">Nayarit</a></li>
+                                                            <li><a href="">Nuevo Leon</a></li>
+                                                            <li><a href="">Oaxaca</a></li>
+                                                            <li><a href="">Puebla</a></li>
+                                                            <li><a href="">Querétaro</a></li>
+                                                            <li><a href="">Quintana Roo</a></li>
+                                                            <li><a href="">San Luis Potosí</a></li>
+                                                            <li><a href="">Sinaloa</a></li>
+                                                            <li><a href="">Sonora</a></li>
+                                                            <li><a href="">Tabasco</a></li>
+                                                            <li><a href="">Tamaulipas</a></li>
+                                                            <li><a href="">Tlaxcala</a></li>
+                                                            <li><a href="">Veracruz</a></li>
+                                                            <li><a href="">Yucatan</a></li>
+                                                            <li><a href="">Zacatecas</a></li>
                                                         </ul>								
                                                     </div>{/*<!-- /.dropdown -->*/}		
                                                 </div>
@@ -117,32 +137,13 @@ class JobPost extends Component {
                                             </div>								
                                         </div>
                                     </div>{/*<!-- /.row -->*/}
-                                    <div className="row exprience-level">
-                                        <div className="col-sm-3">
-                                            <label>Exprience Level</label>
-                                        </div>
-                                        <div className="col-sm-9">
-                                            <div className="exprience">
-                                                <input ref="entryLevel" type="radio" name="radio3" placeholder="entry-level" id="entry-level"/> <label htmlFor="entry-level">Entry Level</label>
-                                                <input ref="midLevel" type="radio" name="radio3" placeholder="mid-level" id="mid-level"/> <label htmlFor="mid-level">Mid Level</label>
-                                                <input ref="midSenior" type="radio" name="radio3" placeholder="mid-senior" id="mid-senior"/> <label htmlFor="mid-senior">Mid-Senior Level</label>	
-                                                <input ref="topLevel" type="radio" name="radio3" placeholder="top-level" id="top-level"/> <label htmlFor="top-level">Top Level</label>	
-                                            </div>{/*<!-- /.user-type -->*/}
-                                        </div>
-                                    </div>{/*<!-- /.row -->*/}
+                                   
                                     <div className="row">
                                         <div className="col-sm-3">
                                             <label>Job Function</label>
                                         </div>
                                         <div className="col-sm-9">
-                                            <div className="dropdown tr-change-dropdown">
-                                                <a data-toggle="dropdown" href="" aria-expanded="true"><span className="change-text">Graphics Design</span><i className="fa fa-angle-down"></i></a>
-                                                <ul className="dropdown-menu tr-change">
-                                                    <li><a href="">Graphics Design</a></li>
-                                                    <li><a href="">Project Manager</a></li>
-                                                    <li><a href="">Software Engineer</a></li>
-                                                </ul>								
-                                            </div>{/*<!-- /.dropdown -->*/}	
+                                            <input ref="jobFunction" className="form-control" type="text" placeholder="ex, Web Development"/>  
                                         </div>
                                     </div>{/*<!-- /.row -->*/}												
                                 </div>

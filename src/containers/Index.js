@@ -12,8 +12,8 @@ class Index extends Component {
             <Banner key="Banner" title="¡Abriendo las puertas del mundo laboral!" detail="We offer 12000 jobs vacation right now" search={true} />,
             // <BannerJobsCategories key="BannerJobsCategories" />,
             <BannerPostResume key="HeadBannerPostResumeer" />,
-            <BannerJobsPosted key="BannerJobsPosted" />,
             <BannerSteps key="BannerSteps" />,
+            <BannerJobsPosted key="BannerJobsPosted" />,
             // <BannerFunFacts key="BannerFunFacts" />,
         ]);
     }

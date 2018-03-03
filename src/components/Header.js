@@ -16,7 +16,7 @@ class Header extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <Link className="navbar-brand" to="/"><img style={{height:"30px"}} className="img-responsive" src="/images/logo.png" alt="Logo" /></Link>
+                            <Link className="navbar-brand" to="/"><img style={{height:"50px"}} className="img-responsive" src="/images/logo.png" alt="Logo" /></Link>
                         </div>
                         {/*<!-- /.navbar-header -->*/}
 

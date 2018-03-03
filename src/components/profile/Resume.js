@@ -68,7 +68,6 @@ class Resume extends Component {
                                             <ul className="tr-list">
                                                 <li>{`Year: ${education.from} - ${education.to}`}</li>
                                                 <li>{education.institute}</li>
-                                                <li>{`Result: ${education.result}`}</li>
                                             </ul>
                                             <p>{education.detail}</p>
                                         </li>
